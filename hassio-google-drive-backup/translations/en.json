@@ -1,0 +1,203 @@
+{
+  "configuration": {
+    "max_backups_in_ha": {
+      "name": "Max Backups in Home Assistant",
+      "description": "The maximum number of backups to keep in Home Assistant"
+    },
+    "max_backups_in_google_drive": {
+      "name": "Max Backups in Google Drive",
+      "description": "The maximum number of backups to keep in Google Drive"
+    },
+    "days_between_backups": {
+      "name": "Days Between Backups",
+      "description": "Number of days between automatic backups"
+    },
+    "ignore_other_backups": {
+      "name": "Ignore Other Backups",
+      "description": "Ignore backups not created by this add-on"
+    },
+    "ignore_upgrade_backups": {
+      "name": "Ignore Upgrade Backups",
+      "description": "Ignore backups created during Home Assistant upgrades"
+    },
+    "backup_storage": {
+      "name": "Backup Storage",
+      "description": "Where to store backups"
+    },
+    "delete_after_upload": {
+      "name": "Delete After Upload",
+      "description": "Delete backups from Home Assistant after uploading to Google Drive"
+    },
+    "delete_before_new_backup": {
+      "name": "Delete Before New Backup",
+      "description": "Delete old backups before creating a new one"
+    },
+    "verbose": {
+      "name": "Verbose Logging",
+      "description": "Enable detailed logging"
+    },
+    "use_ssl": {
+      "name": "Use SSL",
+      "description": "Enable SSL for the web interface"
+    },
+    "certfile": {
+      "name": "SSL Certificate File",
+      "description": "Path to SSL certificate file"
+    },
+    "keyfile": {
+      "name": "SSL Key File",
+      "description": "Path to SSL key file"
+    },
+    "require_login": {
+      "name": "Require Login",
+      "description": "Require authentication to access the web interface"
+    },
+    "backup_name": {
+      "name": "Backup Name Template",
+      "description": "Template for naming backups"
+    },
+    "backup_time_of_day": {
+      "name": "Backup Time of Day",
+      "description": "Time of day to create backups (HH:MM format)"
+    },
+    "specify_backup_folder": {
+      "name": "Specify Backup Folder",
+      "description": "Choose a specific folder in Google Drive for backups"
+    },
+    "warn_for_low_space": {
+      "name": "Warn for Low Space",
+      "description": "Show warning when disk space is low"
+    },
+    "watch_backup_directory": {
+      "name": "Watch Backup Directory",
+      "description": "Monitor the backup directory for changes"
+    },
+    "trace_requests": {
+      "name": "Trace Requests",
+      "description": "Enable detailed request tracing"
+    },
+    "generational_days": {
+      "name": "Generational Days",
+      "description": "Number of daily backups to keep"
+    },
+    "generational_weeks": {
+      "name": "Generational Weeks",
+      "description": "Number of weekly backups to keep"
+    },
+    "generational_months": {
+      "name": "Generational Months",
+      "description": "Number of monthly backups to keep"
+    },
+    "generational_years": {
+      "name": "Generational Years",
+      "description": "Number of yearly backups to keep"
+    },
+    "generational_day_of_year": {
+      "name": "Generational Day of Year",
+      "description": "Day of year for yearly backups"
+    },
+    "generational_day_of_month": {
+      "name": "Generational Day of Month",
+      "description": "Day of month for monthly backups"
+    },
+    "generational_day_of_week": {
+      "name": "Generational Day of Week",
+      "description": "Day of week for weekly backups"
+    },
+    "generational_delete_early": {
+      "name": "Generational Delete Early",
+      "description": "Delete backups early when using generational backup scheme"
+    },
+    "notify_for_stale_backups": {
+      "name": "Notify for Stale Backups",
+      "description": "Send notifications when backups become stale"
+    },
+    "enable_backup_stale_sensor": {
+      "name": "Enable Backup Stale Sensor",
+      "description": "Enable the sensor that tracks if backups are stale"
+    },
+    "enable_backup_state_sensor": {
+      "name": "Enable Backup State Sensor",
+      "description": "Enable the sensor that tracks backup state"
+    },
+    "send_error_reports": {
+      "name": "Send Error Reports",
+      "description": "Automatically send anonymous error reports"
+    },
+    "backup_password": {
+      "name": "Backup Password",
+      "description": "Password to encrypt backups"
+    },
+    "exclude_folders": {
+      "name": "Exclude Folders",
+      "description": "Folders to exclude from backups"
+    },
+    "exclude_addons": {
+      "name": "Exclude Add-ons",
+      "description": "Add-ons to exclude from backups"
+    },
+    "exclude_ha_database": {
+      "name": "Exclude Home Assistant Database",
+      "description": "Exclude the Home Assistant database from backups"
+    },
+    "stop_addons": {
+      "name": "Stop Add-ons",
+      "description": "Add-ons to stop before creating a backup"
+    },
+    "disable_watchdog_when_stopping": {
+      "name": "Disable Watchdog When Stopping",
+      "description": "Disable watchdog when stopping add-ons"
+    },
+    "expose_extra_server": {
+      "name": "Expose Extra Server",
+      "description": "Expose an additional server port"
+    },
+    "drive_experimental": {
+      "name": "Drive Experimental Features",
+      "description": "Enable experimental Google Drive features"
+    },
+    "drive_ipv4": {
+      "name": "Drive IPv4 Address",
+      "description": "Specific IPv4 address to use for Google Drive"
+    },
+    "ignore_ipv6_addresses": {
+      "name": "Ignore IPv6 Addresses",
+      "description": "Ignore IPv6 addresses when connecting"
+    },
+    "confirm_multiple_deletes": {
+      "name": "Confirm Multiple Deletes",
+      "description": "Ask for confirmation before deleting multiple backups"
+    },
+    "google_drive_timeout_seconds": {
+      "name": "Google Drive Timeout",
+      "description": "Timeout in seconds for Google Drive operations"
+    },
+    "alternate_dns_servers": {
+      "name": "Alternate DNS Servers",
+      "description": "Comma-separated list of alternate DNS servers"
+    },
+    "enable_drive_upload": {
+      "name": "Enable Drive Upload",
+      "description": "Enable uploading backups to Google Drive"
+    },
+    "call_backup_snapshot": {
+      "name": "Call Backup 'Snapshot'",
+      "description": "Use legacy 'snapshot' terminology instead of 'backup'"
+    },
+    "background_color": {
+      "name": "Background Color",
+      "description": "Custom background color for the web interface (hex format)"
+    },
+    "accent_color": {
+      "name": "Accent Color",
+      "description": "Custom accent color for the web interface (hex format)"
+    },
+    "maximum_upload_chunk_bytes": {
+      "name": "Maximum Upload Chunk Size",
+      "description": "Maximum size of upload chunks to Google Drive"
+    }
+  },
+  "network": {
+    "1627/tcp": "Web Interface (Ingress)"
+  }
+}

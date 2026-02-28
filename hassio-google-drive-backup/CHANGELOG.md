@@ -1,3 +1,17 @@
+## v0.113.0 [2026-02-28]
+
+### New Features
+- **Internationalization (i18n) Support**: The addon now supports multiple languages
+  - **Home Assistant Configuration Interface**: Translated using Home Assistant's native translation system
+  - **Web UI**: Complete translation framework with automatic language detection
+  - **Supported Languages**:
+    - English (en) - Default
+    - Traditional Chinese (zh-Hant) - Complete
+  - **Language Detection**: Automatically detects language from URL parameters, localStorage, or browser settings
+  - **Manual Language Switching**: Added language selector in the top-right corner of the Web UI
+  - **Fallback System**: All original English text preserved as fallback if translations fail to load
+- **Documentation**: Added comprehensive i18n documentation (I18N_README.md, I18N_USAGE.md, I18N_SUMMARY.md)
+
 ## v0.112.1 [2023-11-03]
 
 - Added warnings about using the "Stop Addons" feature.  I plan on removing this in the near future.  If you'd like to keep the feature around, please give your feedback in [this GitHub issue](https://github.com/sabeechen/hassio-google-drive-backup/issues/940).

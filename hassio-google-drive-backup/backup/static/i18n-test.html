@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>i18n System Test - 多語言系統測試</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .container {
+      background: white;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 { color: #333; border-bottom: 3px solid #4CAF50; padding-bottom: 10px; }
+    h2 { color: #666; margin-top: 30px; }
+    .test-section {
+      background: #f9f9f9;
+      border-left: 4px solid #4CAF50;
+      padding: 15px;
+      margin: 15px 0;
+    }
+    .label { 
+      font-weight: bold; 
+      color: #4CAF50;
+      margin-right: 10px;
+    }
+    .value {
+      color: #333;
+      padding: 5px 10px;
+      background: #e8f5e9;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    .info-box {
+      background: #e3f2fd;
+      border: 1px solid #2196F3;
+      border-radius: 5px;
+      padding: 15px;
+      margin: 15px 0;
+    }
+    code {
+      background: #f5f5f5;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 data-i18n="backup.title">Backups</h1>
+    
+    <div class="info-box">
+      <p><strong>📌 測試說明：</strong></p>
+      <ul>
+        <li>此頁面用於測試 i18n 多語言系統</li>
+        <li>使用右上角的語言選擇器切換語言</li>
+        <li>所有標記 <code>data-i18n</code> 的元素會自動翻譯</li>
+        <li>JavaScript 函數 <code>t()</code> 可在程式中使用</li>
+      </ul>
+    </div>
+
+    <h2>1. 系統資訊</h2>
+    <div class="test-section">
+      <p><span class="label">當前語言 (Current Locale):</span> <span class="value" id="current-locale"></span></p>
+      <p><span class="label">瀏覽器語言 (Browser Language):</span> <span class="value" id="browser-lang"></span></p>
+      <p><span class="label">已載入翻譯 (Loaded Translations):</span> <span class="value" id="loaded-langs"></span></p>
+    </div>
+
+    <h2>2. 常用操作 (Common Actions)</h2>
+    <div class="test-section">
+      <p data-i18n="common.yes">Yes</p>
+      <p data-i18n="common.no">No</p>
+      <p data-i18n="common.save">Save</p>
+      <p data-i18n="common.delete">Delete</p>
+      <p data-i18n="common.cancel">Cancel</p>
+      <p data-i18n="common.loading">Loading...</p>
+    </div>
+
+    <h2>3. 備份相關 (Backup Related)</h2>
+    <div class="test-section">
+      <p data-i18n="backup.statistics">Backup Statistics</p>
+      <p data-i18n="backup.create">Create Backup</p>
+      <p data-i18n="backup.last">Last Backup</p>
+      <p data-i18n="backup.next">Next Backup in</p>
+      <p data-i18n="backup.uploading">Uploading to Google Drive</p>
+      <p data-i18n="backup.details">Backup Details</p>
+    </div>
+
+    <h2>4. 參數插值測試 (Parameter Interpolation)</h2>
+    <div class="test-section">
+      <p data-i18n="backup.count" data-i18n-params='{"count": 5}'>5 backups</p>
+      <p data-i18n="source.backups_in" data-i18n-params='{"source": "Google Drive", "count": 10}'>10 backups in Google Drive</p>
+      <p data-i18n="time.days_ago" data-i18n-params='{"count": 3}'>3 days ago</p>
+    </div>
+
+    <h2>5. 設定 (Settings)</h2>
+    <div class="test-section">
+      <p data-i18n="settings.title">Settings</p>
+      <p data-i18n="settings.backup_settings">Backup Settings</p>
+      <p data-i18n="settings.max_backups_ha">Max Backups in Home Assistant</p>
+      <p data-i18n="settings.backup_password">Backup Password</p>
+    </div>
+
+    <h2>6. 錯誤訊息 (Error Messages)</h2>
+    <div class="test-section">
+      <p data-i18n="error.generic">An error occurred</p>
+      <p data-i18n="error.network">Network error</p>
+      <p data-i18n="error.authentication">Authentication failed</p>
+      <p data-i18n="error.cant_reach_google">Cannot reach Google Drive</p>
+    </div>
+
+    <h2>7. JavaScript API 測試</h2>
+    <div class="test-section">
+      <button onclick="testTranslation()">測試 t() 函數</button>
+      <button onclick="testParams()">測試參數插值</button>
+      <button onclick="switchToEn()">切換到英文</button>
+      <button onclick="switchToZhHant()">切換到繁體中文</button>
+      <button onclick="switchToZhHans()">切換到簡體中文</button>
+      <div id="test-output" style="margin-top: 15px; padding: 10px; background: #fff; border: 1px solid #ddd; border-radius: 4px; min-height: 50px;"></div>
+    </div>
+
+    <h2>8. Input 框測試</h2>
+    <div class="test-section">
+      <input type="text" data-i18n="backup.name" placeholder="Backup Name" style="padding: 8px; width: 300px; border: 1px solid #ddd; border-radius: 4px;">
+    </div>
+  </div>
+
+  <!-- Load i18n System -->
+  <script src="js/i18n.js"></script>
+  <script src="js/translations/en.js"></script>
+  <script src="js/translations/zh-Hant.js"></script>
+  <script src="js/translations/zh-Hans.js"></script>
+  <script src="js/language-selector.js"></script>
+
+  <script>
+    // Update system info
+    function updateSystemInfo() {
+      document.getElementById('current-locale').textContent = window.i18n.getLocale();
+      document.getElementById('browser-lang').textContent = navigator.language;
+      document.getElementById('loaded-langs').textContent = Object.keys(window.i18n.translations).join(', ');
+    }
+
+    // Test functions
+    function testTranslation() {
+      const output = document.getElementById('test-output');
+      output.innerHTML = `
+        <p><strong>t('backup.title'):</strong> ${t('backup.title')}</p>
+        <p><strong>t('common.save'):</strong> ${t('common.save')}</p>
+        <p><strong>t('settings.title'):</strong> ${t('settings.title')}</p>
+      `;
+    }
+
+    function testParams() {
+      const output = document.getElementById('test-output');
+      output.innerHTML = `
+        <p><strong>t('backup.count', {count: 7}):</strong> ${t('backup.count', {count: 7})}</p>
+        <p><strong>t('source.backups_in', {source: 'HA', count: 3}):</strong> ${t('source.backups_in', {source: 'HA', count: 3})}</p>
+        <p><strong>t('time.hours_ago', {count: 5}):</strong> ${t('time.hours_ago', {count: 5})}</p>
+      `;
+    }
+
+    function switchToEn() {
+      window.i18n.setLocale('en');
+      setTimeout(() => location.reload(), 100);
+    }
+
+    function switchToZhHant() {
+      window.i18n.setLocale('zh-Hant');
+      setTimeout(() => location.reload(), 100);
+    }
+
+    function switchToZhHans() {
+      window.i18n.setLocale('zh-Hans');
+      setTimeout(() => location.reload(), 100);
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', updateSystemInfo);
+    window.addEventListener('languageChanged', updateSystemInfo);
+  </script>
+</body>
+</html>
