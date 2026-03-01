@@ -24,7 +24,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         path: staging
-        repository: chinsonyeh/hgdb-dev-staging
+        repository: sabeechen/hgdb-dev-staging
         persist-credentials: true
         token: ${{ secrets.STAGING_REPO_TOKEN }}
 
@@ -45,7 +45,7 @@ jobs:
         args: |
           --amd64 --aarch64 \
           --target dev/hassio-google-drive-backup \
-          --docker-hub "ghcr.io/chinsonyeh"
+          --docker-hub "ghcr.io/sabeechen"
 
     - name: Publish Staging Addon Version
       run: |
