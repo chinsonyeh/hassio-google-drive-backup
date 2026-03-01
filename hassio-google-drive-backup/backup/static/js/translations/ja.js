@@ -150,7 +150,7 @@ window.i18n.loadTranslations('ja', {
     year_ago: '1 年前',
     years_ago: '{count} 年前'
   },
-  settings: {
+  settings_page: {
     title: "アドオン設定",
     section_look_and_feel: "外観",
     section_google_drive_options: "Google ドライブのオプション",
