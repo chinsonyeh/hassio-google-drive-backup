@@ -11,7 +11,7 @@ class I18n {
     this.currentLocale = 'en';
     this.translations = {};
     this.fallbackLocale = 'en';
-    this.supportedLocales = ['en', 'zh-Hant', 'zh-Hans'];
+    this.supportedLocales = ['en', 'zh-Hant', 'zh-Hans', 'ja', 'ko'];
     
     // Initialize
     this.detectLanguage();
@@ -160,7 +160,9 @@ class I18n {
     return [
       { code: 'en', name: 'English' },
       { code: 'zh-Hant', name: '繁體中文' },
-      { code: 'zh-Hans', name: '简体中文' }
+      { code: 'zh-Hans', name: '简体中文' },
+      { code: 'ja', name: '日本語' },
+      { code: 'ko', name: '한국어' }
     ];
   }
 

@@ -7,6 +7,9 @@
   - **Supported Languages**:
     - English (en) - Default
     - Traditional Chinese (zh-Hant) - Complete
+    - Simplified Chinese (zh-Hans) - Complete
+    - Japanese (ja) - Complete
+    - Korean (ko) - Complete
   - **Language Detection**: Automatically detects language from URL parameters, localStorage, or browser settings
   - **Manual Language Switching**: Added language selector in the top-right corner of the Web UI
   - **Fallback System**: All original English text preserved as fallback if translations fail to load
