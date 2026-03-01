@@ -186,6 +186,16 @@ class I18n {
         } else {
           element.value = translation;
         }
+      } else if (element.children.length > 0) {
+        // Element has child elements (e.g. material icons) - update text nodes only
+        const textNodes = Array.from(element.childNodes).filter(n => n.nodeType === Node.TEXT_NODE);
+        if (textNodes.length > 0) {
+          // Replace last text node with translation, clear the rest
+          textNodes[textNodes.length - 1].textContent = translation;
+          textNodes.slice(0, -1).forEach(n => { n.textContent = ''; });
+        } else {
+          element.appendChild(document.createTextNode(translation));
+        }
       } else {
         element.textContent = translation;
       }
