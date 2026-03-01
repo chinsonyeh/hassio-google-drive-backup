@@ -3,6 +3,6 @@ setup(
     name="hgdb",
     packages=find_packages(),
     package_data={
-        'backup': ['static/*', 'static/*/*', 'static/*/*/*']
+        'backup': ['static/*', 'static/*/*', 'static/*/*/*', 'static/*/*/*/*']
     }
 )
