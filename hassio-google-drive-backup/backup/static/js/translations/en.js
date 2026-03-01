@@ -76,31 +76,6 @@ window.i18n.loadTranslations('en', {
     signout: 'Sign Out'
   },
 
-  // Settings page
-  settings: {
-    title: 'Settings',
-    backup_settings: 'Backup Settings',
-    google_drive_settings: 'Google Drive Settings',
-    general_settings: 'General Settings',
-    advanced_settings: 'Advanced Settings',
-    theme_settings: 'Theme Settings',
-    save_settings: 'Save Settings',
-    reset_settings: 'Reset to Defaults',
-    max_backups_ha: 'Max Backups in Home Assistant',
-    max_backups_drive: 'Max Backups in Google Drive',
-    days_between_backups: 'Days Between Backups',
-    backup_name_template: 'Backup Name Template',
-    backup_time: 'Backup Time of Day',
-    backup_password: 'Backup Password',
-    delete_after_upload: 'Delete After Upload to Google Drive',
-    notify_stale: 'Notify for Stale Backups',
-    generational_backup: 'Generational Backup',
-    exclude_folders: 'Exclude Folders',
-    exclude_addons: 'Exclude Add-ons',
-    background_color: 'Background Color',
-    accent_color: 'Accent Color'
-  },
-
   // Error messages
   error: {
     generic: 'An error occurred',

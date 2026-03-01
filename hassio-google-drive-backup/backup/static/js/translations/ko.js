@@ -76,31 +76,6 @@ window.i18n.loadTranslations('ko', {
     signout: '로그아웃'
   },
 
-  // 설정 페이지
-  settings: {
-    title: '설정',
-    backup_settings: '백업 설정',
-    google_drive_settings: 'Google 드라이브 설정',
-    general_settings: '일반 설정',
-    advanced_settings: '고급 설정',
-    theme_settings: '테마 설정',
-    save_settings: '설정 저장',
-    reset_settings: '기본값으로 재설정',
-    max_backups_ha: 'Home Assistant 내 최대 백업 수',
-    max_backups_drive: 'Google 드라이브 내 최대 백업 수',
-    days_between_backups: '백업 간격(일)',
-    backup_name_template: '백업 이름 템플릿',
-    backup_time: '백업 시간',
-    backup_password: '백업 비밀번호',
-    delete_after_upload: '업로드 후 삭제',
-    notify_stale: '오래된 백업 알림',
-    generational_backup: '세대별 백업',
-    exclude_folders: '폴더 제외',
-    exclude_addons: '애드온 제외',
-    background_color: '배경색',
-    accent_color: '강조색'
-  },
-
   // 오류 메시지
   error: {
     generic: '오류가 발생했습니다',

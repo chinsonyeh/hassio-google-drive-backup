@@ -76,31 +76,6 @@ window.i18n.loadTranslations('ja', {
     signout: 'サインアウト'
   },
 
-  // 設定ページ
-  settings: {
-    title: '設定',
-    backup_settings: 'バックアップ設定',
-    google_drive_settings: 'Google ドライブ設定',
-    general_settings: '一般設定',
-    advanced_settings: '詳細設定',
-    theme_settings: 'テーマ設定',
-    save_settings: '設定を保存',
-    reset_settings: 'デフォルトに戻す',
-    max_backups_ha: 'Home Assistant 内の最大バックアップ数',
-    max_backups_drive: 'Google ドライブ内の最大バックアップ数',
-    days_between_backups: 'バックアップの間隔（日）',
-    backup_name_template: 'バックアップ名のテンプレート',
-    backup_time: 'バックアップの実行時刻',
-    backup_password: 'バックアップのパスワード',
-    delete_after_upload: 'アップロード後に削除',
-    notify_stale: '古いバックアップの通知',
-    generational_backup: '世代バックアップ',
-    exclude_folders: '除外するフォルダー',
-    exclude_addons: '除外するアドオン',
-    background_color: '背景色',
-    accent_color: 'アクセントカラー'
-  },
-
   // エラーメッセージ
   error: {
     generic: 'エラーが発生しました',
@@ -150,7 +125,7 @@ window.i18n.loadTranslations('ja', {
     year_ago: '1 年前',
     years_ago: '{count} 年前'
   },
-  settings_page: {
+  settings: {
     title: "アドオン設定",
     section_look_and_feel: "外観",
     section_google_drive_options: "Google ドライブのオプション",
