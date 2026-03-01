@@ -94,11 +94,11 @@
     },
     "generational_day_of_year": {
       "name": "世代备份 - 年中第几天",
-      "description": "每年备份的日期（一年中的第幾天）"
+      "description": "每年备份的日期（一年中的第几天）"
     },
     "generational_day_of_month": {
       "name": "世代备份 - 月中第几天",
-      "description": "每月备份的日期（月中的第幾天）"
+      "description": "每月备份的日期（月中的第几天）"
     },
     "generational_day_of_week": {
       "name": "世代备份 - 星期几",
