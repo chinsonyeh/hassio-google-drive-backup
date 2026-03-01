@@ -10,12 +10,10 @@ from backup.creds import Exchanger
 from backup.config import Config, Setting, VERSION
 from backup.exceptions import GoogleCredentialsExpired, ensureKey, KnownError
 from injector import ClassAssistedBuilder, inject, singleton
-from .errorstore import ErrorStore
 from .cloudlogger import CloudLogger
 from yarl import URL
 from backup.config import Version
 from urllib.parse import unquote
-from backup.time import Time
 
 NEW_AUTH_MINIMUM = Version(0, 101, 3)
 
@@ -26,17 +24,13 @@ class Server():
     def __init__(self,
                  config: Config,
                  exchanger_builder: ClassAssistedBuilder[Exchanger],
-                 logger: CloudLogger,
-                 error_store: ErrorStore,
-                 time: Time):
-        self._time = time
+                 logger: CloudLogger):
         self.exchanger = exchanger_builder.build(
             client_id=config.get(Setting.DEFAULT_DRIVE_CLIENT_ID),
             client_secret=config.get(Setting.DEFAULT_DRIVE_CLIENT_SECRET),
             redirect=URL(config.get(Setting.AUTHORIZATION_HOST)).with_path("/drive/authorize"))
         self.logger = logger
         self.config = config
-        self.error_store = error_store
 
     def base_context(self, request: Request):
         return {
@@ -99,13 +93,6 @@ class Server():
                 return Response(status=500, body=content)
         else:
             raise HTTPBadRequest()
-
-    async def error(self, request: Request):
-        try:
-            self.logReport(request, await request.json())
-        except BaseException as e:
-            self.logError(request, e)
-        return Response()
 
     async def refresh(self, request: Request):
         try:
@@ -179,7 +166,6 @@ class Server():
             get("/", self.index),
             get("/drive/authorize", self.authorize),
             post("/drive/refresh", self.refresh),
-            post("/logerror", self.error),
             get("/health", self.health)
         ])
         aiohttp_jinja2.setup(app, loader=jinja2.FileSystemLoader(path))
@@ -197,12 +183,7 @@ class Server():
         data['exception'] = self.logger.formatException(exception)
         self.logger.log_struct(data)
 
-    def logReport(self, request, report):
-        data = self.getRequestInfo(request, include_timestamp=True)
-        data['report'] = report
-        self.error_store.store(data)
-
-    def getRequestInfo(self, request: Request, include_timestamp=False):
+    def getRequestInfo(self, request: Request):
         data = {
             'client': request.headers.get('client', "unknown"),
             'version': request.headers.get('addon_version', "unknown"),
@@ -210,6 +191,4 @@ class Server():
             'url': str(request.url),
             'length': request.content_length,
         }
-        if include_timestamp:
-            data['server_time'] = self._time.now()
         return data

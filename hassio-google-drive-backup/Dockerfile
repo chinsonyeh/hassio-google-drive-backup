@@ -4,8 +4,8 @@ WORKDIR /app
 COPY . /app
 RUN chmod +x addon_deps.sh
 RUN ./addon_deps.sh
-RUN pip3 install .
-COPY config.json /usr/local/lib/python3.11/site-packages/config.json
+RUN pip3 install --no-build-isolation --break-system-packages .
+RUN python3 -c "import site, shutil; shutil.copy('config.json', site.getsitepackages()[0] + '/config.json')"
 
 EXPOSE 1627
 EXPOSE 8099
