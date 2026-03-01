@@ -153,6 +153,8 @@ window.i18n.loadTranslations('zh-Hans', {
   },
   settings: {
     title: "插件设置",
+    backup_settings: "备份设置",
+    google_drive_settings: "Google 云端硬盘设置",
     section_look_and_feel: "外观与感觉",
     section_google_drive_options: "Google 云端硬盘选项",
     section_uncommon_options: "高级选项",
