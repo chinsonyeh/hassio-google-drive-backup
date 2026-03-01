@@ -150,7 +150,7 @@ window.i18n.loadTranslations('en', {
     year_ago: '1 year ago',
     years_ago: '{count} years ago'
   },
-  settings: {
+  settings_page: {
     title: "Add-on Settings",
     section_look_and_feel: "Look and Feel",
     section_google_drive_options: "Google Drive Options",
