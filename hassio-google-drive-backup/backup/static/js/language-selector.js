@@ -11,6 +11,8 @@ function createLanguageSelector() {
         <option value="en" ${window.i18n.getLocale() === 'en' ? 'selected' : ''}>English</option>
         <option value="zh-Hant" ${window.i18n.getLocale() === 'zh-Hant' ? 'selected' : ''}>繁體中文</option>
         <option value="zh-Hans" ${window.i18n.getLocale() === 'zh-Hans' ? 'selected' : ''}>简体中文</option>
+        <option value="ja" ${window.i18n.getLocale() === 'ja' ? 'selected' : ''}>日本語</option>
+        <option value="ko" ${window.i18n.getLocale() === 'ko' ? 'selected' : ''}>한국어</option>
       </select>
     </div>
   `;
@@ -36,8 +38,10 @@ function attachLanguageSelectorEvents() {
       
       // Set moment.js locale if available
       if (typeof moment !== 'undefined') {
-        const momentLocale = newLocale === 'zh-Hant' ? 'zh-tw' : 
-                            newLocale === 'zh-Hans' ? 'zh-cn' : 'en';
+        const momentLocale = newLocale === 'zh-Hant' ? 'zh-tw' :
+                            newLocale === 'zh-Hans' ? 'zh-cn' :
+                            newLocale === 'ja' ? 'ja' :
+                            newLocale === 'ko' ? 'ko' : 'en';
         moment.locale(momentLocale);
       }
       
