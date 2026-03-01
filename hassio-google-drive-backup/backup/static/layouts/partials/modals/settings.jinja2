@@ -2,11 +2,11 @@
   <div class="modal-content">
     <h4 data-i18n="settings.title">Add-on Settings</h4>
     <p>
-      Settings take effect right after saving them. If you enable or disable SSL, you may need to go to a different
-      address to access the UI after the settings are saved. See the
+      <span data-i18n="settings.intro_before_link">Settings take effect right after saving them. If you enable or disable SSL, you may need to go to a different
+      address to access the UI after the settings are saved. See the</span>
       <a href="https://github.com/sabeechen/hassio-google-drive-backup#configuration" target="_blank"
-        rel="noreferrer">GitHub Readme</a>
-      for more help with settings.
+        rel="noreferrer" data-i18n="settings.intro_link">GitHub Readme</a>
+      <span data-i18n="settings.intro_after_link">for more help with settings.</span>
     </p>
     <div class="row">
       <form class="col s12" method="get" id="settings_form">
@@ -156,11 +156,11 @@
             <i class="material-icons prefix">label_outline</i>
             <input type="text" id="backup_name" name="backup_name" class="validate" onkeyup="backupNameExample()" />
             <label for="backup_name" data-i18n="settings.label_backup_name">Backup Name Template</label>
-            <span class="helper-text">The template to use for naming new backup.
+            <span class="helper-text"><span data-i18n="settings.help_backup_name_before_link">The template to use for naming new backup.</span>
               <a target="_blank" rel="noreferrer"
-                href="https://github.com/sabeechen/hassio-google-drive-backup#can-i-give-backups-a-different-name">See
+                href="https://github.com/sabeechen/hassio-google-drive-backup#can-i-give-backups-a-different-name" data-i18n="settings.help_backup_name_link">See
                 here</a>
-              for a list of all available options, your backup's name will look something like: <br /><span
+              <span data-i18n="settings.help_backup_name_after_link">for a list of all available options, your backup's name will look something like:</span> <br /><span
                 id="backup_example"></span></span>
           </div>
         </div>
@@ -171,10 +171,10 @@
                 class="filled-in checkbox-ha" onchange="chooseFolderChanged();" />
               <span data-i18n="settings.check_specify_backup_folder">Manually specify the backup folder</span>
               <br />
-              <span class="helper-text">Specify manually which folder backups should be uploaded into in Google Drive.
+              <span class="helper-text" data-i18n="settings.help_specify_folder_main">Specify manually which folder backups should be uploaded into in Google Drive.
                 If disabled, the addon will automatically create a folder in your My Drive whenever its
                 needed.</span><span id="current_folder_span"><a id="current_folder_link" target="_blank"
-                  rel="noreferrer"> Click here</a> to see the folder currently being used.</span>
+                  rel="noreferrer" data-i18n="settings.help_current_folder_link"> Click here</a> <span data-i18n="settings.help_current_folder_after_link">to see the folder currently being used.</span></span>
             </label>
             <br />
             <div id="choose_folder_controls">
@@ -289,10 +289,10 @@
                 onchange="toggleSlide(this, 'settings_server_details');" />
               <span id="expose_extra_server_label" data-i18n="settings.check_expose_extra_server">Expose this web interface on an additional port</span>
               <br />
-              <span class="helper-text" id="expose_extra_server_help">Expose this web interface on an additional port.
-                This isn't necessary unless you'd like to avoid accessing this web interface through
+              <span class="helper-text" id="expose_extra_server_help"><span data-i18n="settings.help_expose_extra_server_before_link">Expose this web interface on an additional port.
+                This isn't necessary unless you'd like to avoid accessing this web interface through</span>
                 <a target="_blank" rel="noreferrer"
-                  href="https://www.home-assistant.io/blog/2019/04/15/hassio-ingress/">ingress</a>.</span>
+                  href="https://www.home-assistant.io/blog/2019/04/15/hassio-ingress/" data-i18n="settings.help_expose_extra_server_link">ingress</a><span data-i18n="settings.help_expose_extra_server_after_link">.</span></span>
             </label>
           </div>
         </div>
@@ -354,12 +354,12 @@
                 class="filled-in checkbox-ha" onchange="toggleSlide(this, 'settings_gen_details');" />
               <span data-i18n="settings.check_generational_enabled">Keep Generational Backups</span>
               <br />
-              <span class="helper-text">Keeps older backups longer on daily, weekly, monthly, and yearly rotations
+              <span class="helper-text"><span data-i18n="settings.help_generational_before_link">Keeps older backups longer on daily, weekly, monthly, and yearly rotations
                 instead of just deleting the oldest backups. When using this feature, its
-                recommended that you keep "Days Between Backups" at 1.
+                recommended that you keep "Days Between Backups" at 1.</span>
                 <a href="https://github.com/sabeechen/hassio-google-drive-backup/blob/master/hassio-google-drive-backup/GENERATIONAL_BACKUP.md"
-                  target="_blank" rel="noreferrer">See here</a>
-                for a deeper explanation.</span>
+                  target="_blank" rel="noreferrer" data-i18n="settings.help_generational_link">See here</a>
+                <span data-i18n="settings.help_generational_after_link">for a deeper explanation.</span></span>
             </label>
           </div>
           <div class="row" id="settings_gen_details" style="display: none">
@@ -487,8 +487,8 @@
               <span data-i18n="settings.check_stop_addons">Stop addons</span>
               <br />
               <span class="helper-text">
-                This feature is going to be removed in a future release.  If you'd like to keep it around, give your feedback <a href="https://github.com/sabeechen/hassio-google-drive-backup/issues/940" target="_blank">here</a>.
-                Addons selected below will be stopped before backup and started after.
+                <span data-i18n="settings.help_stop_addons_before_link">This feature is going to be removed in a future release.  If you'd like to keep it around, give your feedback</span> <a href="https://github.com/sabeechen/hassio-google-drive-backup/issues/940" target="_blank" data-i18n="settings.help_stop_addons_link">here</a>.
+                <span data-i18n="settings.help_stop_addons_after_link">Addons selected below will be stopped before backup and started after.</span>
               </span>
             </label>
           </div>
@@ -519,18 +519,17 @@
                 <a href="#!" class="btn-flat" style="margin-left: 45px; margin-top: 10px" onclick="showPallette(this)"
                   id="background_color"></a>
                 <label style="transform: translateY(-20px) scale(0.8)" data-i18n="settings.label_background_color">Background Color</label>
-                <span class="helper-text" style="margin-top: 10px">The background color of this interface. <a href="#"
-                    onclick="revertColors();">Click here</a> to revert back to the default.</span>
+                <span class="helper-text" style="margin-top: 10px"><span data-i18n="settings.help_background_color_before_link">The background color of this interface.</span> <a href="#"
+                    onclick="revertColors();" data-i18n="settings.help_color_revert_link">Click here</a> <span data-i18n="settings.help_color_revert_after_link">to revert back to the default.</span></span>
               </div>
               <div class="input-field col s6">
                 <i class="material-icons prefix">format_paint</i>
                 <a href="#!" class="btn-flat" style="margin-left: 45px; margin-top: 10px" onclick="showPallette(this)"
                   id="accent_color"></a>
                 <label style="transform: translateY(-20px) scale(0.8)" data-i18n="settings.label_accent_color">Accent Color</label>
-                <span class="helper-text" style="margin-top: 10px">The accent color of this interface (e.g. links,
-                  buttons, and other elements you can interact with). <a href="#" onclick="revertColors();">Click
-                    here</a> to revert
-                  back to the default.</span>
+                <span class="helper-text" style="margin-top: 10px"><span data-i18n="settings.help_accent_color_before_link">The accent color of this interface (e.g. links,
+                  buttons, and other elements you can interact with).</span> <a href="#" onclick="revertColors();" data-i18n="settings.help_color_revert_link">Click
+                    here</a> <span data-i18n="settings.help_color_revert_after_link">to revert back to the default.</span></span>
               </div>
             </div>
           </div>
@@ -572,10 +571,10 @@
                 pattern="^([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})(,[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})*$"
                 class="validate" />
               <label for="alternate_dns_servers" data-i18n="settings.label_alternate_dns_servers">Alternate DNS Servers</label>
-              <span class="helper-text">When the add-on runs into trouble resolving Google Drive's IP Address, it will
+              <span class="helper-text"><span data-i18n="settings.help_alternate_dns_before_link">When the add-on runs into trouble resolving Google Drive's IP Address, it will
                 use this comma-delimited list of DNS Servers as alternate sources for name
-                resolution. The servers must support TCP DNS lookups. The defaults are
-                <a href="https://developers.google.com/speed/public-dns/" target="_blank" rel="noreferrer">Google's
+                resolution. The servers must support TCP DNS lookups. The defaults are</span>
+                <a href="https://developers.google.com/speed/public-dns/" target="_blank" rel="noreferrer" data-i18n="settings.help_alternate_dns_link">Google's
                   public DNS servers</a>.</span>
             </div>
           </div>
@@ -609,12 +608,12 @@
               <input type="text" id="drive_ipv4" name="drive_ipv4"
                 pattern="^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$" class="validate" />
               <label for="drive_ipv4" data-i18n="settings.label_drive_ipv4">Google Drive IP Address Override</label>
-              <span class="helper-text">If you're having problems with reaching Google Drive, you can use this to
+              <span class="helper-text"><span data-i18n="settings.help_drive_ipv4_before_link">If you're having problems with reaching Google Drive, you can use this to
                 specify Google Drive's IP address manually and circumvent DNS lookup entirely. You can
-                use a website like
+                use a website like</span>
                 <a target="_blank" rel="noreferrer"
-                  href="https://www.xmyip.com/hostname-ip?hostname=www.googleapis.com">this one</a>
-                to lookup what address will work for www.googleapis.com.</span>
+                  href="https://www.xmyip.com/hostname-ip?hostname=www.googleapis.com" data-i18n="settings.help_drive_ipv4_link">this one</a>
+                <span data-i18n="settings.help_drive_ipv4_after_link">to lookup what address will work for www.googleapis.com.</span></span>
             </div>
           </div>
           <div class="col s11 offset-s1 row">
@@ -682,11 +681,11 @@
                 class="filled-in checkbox-ha" />
               <span data-i18n="settings.check_call_backup_snapshot">Use old sensor names/values with "snapshot" instead of "backup"</span>
               <br />
-              <span class="helper-text">When checked, the addon's state and staleness sensors will be
+              <span class="helper-text"><span data-i18n="settings.help_call_backup_snapshot_before_link">When checked, the addon's state and staleness sensors will be
                 published as binary_sensor.snapshots_stale and sensor.snapshot_backup and their
-                attributes will reference "snapshots" instead of "backups". <a target="_blank" rel="noreferrer"
-                  href="https://github.com/sabeechen/hassio-google-drive-backup/blob/master/hassio-google-drive-backup/BACKUP_AND_SNAPSHOT.md">
-                  See here</a> for a detailed explanation of why you might want this.</span>
+                attributes will reference "snapshots" instead of "backups".</span> <a target="_blank" rel="noreferrer"
+                  href="https://github.com/sabeechen/hassio-google-drive-backup/blob/master/hassio-google-drive-backup/BACKUP_AND_SNAPSHOT.md"
+                  data-i18n="settings.help_call_backup_snapshot_link">See here</a> <span data-i18n="settings.help_call_backup_snapshot_after_link">for a detailed explanation of why you might want this.</span></span>
             </label>
           </div>
         </div>
