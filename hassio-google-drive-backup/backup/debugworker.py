@@ -49,11 +49,6 @@ class DebugWorker(Worker):
             await self.updateDns()
         if not self._last_server_check or self.time.now() > self._last_server_check + self._last_server_refresh:
             await self.updateHealthCheck()
-        if self.config.get(Setting.SEND_ERROR_REPORTS):
-            try:
-                await self.maybeSendErrorReport()
-            except Exception:
-                pass
 
     # Once per day, query the health endpoint of the token server to see who is up.
     # This checks for broadcast messages for all users and also finds which token
