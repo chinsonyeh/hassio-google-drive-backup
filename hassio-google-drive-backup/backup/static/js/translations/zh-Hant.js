@@ -76,31 +76,6 @@ window.i18n.loadTranslations('zh-Hant', {
     signout: '登出'
   },
 
-  // 設定頁面
-  settings: {
-    title: '設定',
-    backup_settings: '備份設定',
-    google_drive_settings: 'Google Drive 設定',
-    general_settings: '一般設定',
-    advanced_settings: '進階設定',
-    theme_settings: '主題設定',
-    save_settings: '儲存設定',
-    reset_settings: '重設為預設值',
-    max_backups_ha: 'Home Assistant 最大備份數量',
-    max_backups_drive: 'Google Drive 最大備份數量',
-    days_between_backups: '備份間隔天數',
-    backup_name_template: '備份名稱範本',
-    backup_time: '每日備份時間',
-    backup_password: '備份密碼',
-    delete_after_upload: '上傳到 Google Drive 後刪除',
-    notify_stale: '過期備份通知',
-    generational_backup: '世代備份',
-    exclude_folders: '排除資料夾',
-    exclude_addons: '排除附加元件',
-    background_color: '背景顏色',
-    accent_color: '強調色'
-  },
-
   // 錯誤訊息
   error: {
     generic: '發生錯誤',
