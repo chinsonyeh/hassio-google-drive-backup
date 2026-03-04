@@ -1,12 +1,12 @@
 <div id="settings_modal" class="modal modal-fixed-footer">
   <div class="modal-content">
-    <h4>Add-on Settings</h4>
+    <h4 data-i18n="settings.title">Add-on Settings</h4>
     <p>
-      Settings take effect right after saving them. If you enable or disable SSL, you may need to go to a different
-      address to access the UI after the settings are saved. See the
+      <span data-i18n="settings.intro_before_link">Settings take effect right after saving them. If you enable or disable SSL, you may need to go to a different
+      address to access the UI after the settings are saved. See the</span>
       <a href="https://github.com/sabeechen/hassio-google-drive-backup#configuration" target="_blank"
-        rel="noreferrer">GitHub Readme</a>
-      for more help with settings.
+        rel="noreferrer" data-i18n="settings.intro_link">GitHub Readme</a>
+      <span data-i18n="settings.intro_after_link">for more help with settings.</span>
     </p>
     <div class="row">
       <form class="col s12" method="get" id="settings_form">
@@ -14,16 +14,16 @@
           <div class="input-field col m6 s12">
             <i class="material-icons prefix">computer</i>
             <input type="number" id="max_backups_in_ha" name="max_backups_in_ha" min="0" class="validate" />
-            <label for="max_backups_in_ha">Backups in Home Assistant</label>
-            <span class="helper-text">The maximum number of backups to keep locally in Home Assistant, or 0 to disable
+            <label for="max_backups_in_ha" data-i18n="settings.label_max_backups_in_ha">Backups in Home Assistant</label>
+            <span class="helper-text" data-i18n="settings.help_max_backups_in_ha">The maximum number of backups to keep locally in Home Assistant, or 0 to disable
               clean-up of old backups entirely.</span>
           </div>
           <div class="input-field col m6 s12">
             <i class="material-icons prefix">cloud_upload</i>
             <input type="number" id="max_backups_in_google_drive" name="max_backups_in_google_drive" min="0"
               class="validate" />
-            <label for="max_backups_in_google_drive">Backups in Google Drive</label>
-            <span class="helper-text">The maximum number of backups to keep remotely in Google Drive, or 0 to disable
+            <label for="max_backups_in_google_drive" data-i18n="settings.label_max_backups_in_google_drive">Backups in Google Drive</label>
+            <span class="helper-text" data-i18n="settings.help_max_backups_in_google_drive">The maximum number of backups to keep remotely in Google Drive, or 0 to disable
               clean-up of old backups entirely.</span>
           </div>
         </div>
@@ -31,10 +31,10 @@
           <div class="input-field col s6">
             <select id="backup_storage" name="backup_storage">
             </select>
-            <label>Home Assistant Backup Location</label>
+            <label data-i18n="settings.label_backup_storage">Home Assistant Backup Location</label>
           </div>
           <div class="input-field col s6">
-            <span class="helper-text">
+            <span class="helper-text" data-i18n="settings.help_backup_storage">
               The place Home Assistant stores backups before they're uploaded to Google Drive. This can be the local
               disk/SD card, a network share, or leave it at "Default" to use the default location configured in Home
               Assistant. New network storage you add through Home Assistant will show up in this list so long as they're
@@ -46,9 +46,9 @@
             <label>
               <input type="checkbox" name="delete_after_upload" id="delete_after_upload"
                 class="filled-in checkbox-ha" />
-              <span>Delete Backups After Upload</span>
+              <span data-i18n="settings.check_delete_after_upload">Delete Backups After Upload</span>
               <br />
-              <span class="helper-text">Delete backups in Home Assistant immediately after uploading them to Google
+              <span class="helper-text" data-i18n="settings.help_delete_after_upload">Delete backups in Home Assistant immediately after uploading them to Google
                 Drive.
                 This can be useful if your machine is low on space, but your backups will only be stored in the cloud.
                 Enabling this will cause "Backups in Home Assistant" to be ignored.</span>
@@ -60,9 +60,9 @@
             <label>
               <input type="checkbox" name="delete_before_new_backup" id="delete_before_new_backup"
                 class="filled-in checkbox-ha" />
-              <span>Delete Oldest Backup Before Making a New One</span>
+              <span data-i18n="settings.check_delete_before_new_backup">Delete Oldest Backup Before Making a New One</span>
               <br />
-              <span class="helper-text">Makes the addon delete the oldest backup before a new one is created in Home
+              <span class="helper-text" data-i18n="settings.help_delete_before_new_backup">Makes the addon delete the oldest backup before a new one is created in Home
                 Assistant or uploaded to Google Drive.
                 When turned off (the default) the oldest backup will only be deleted after a new one has been created or
                 uploaded. Be warned that if a
@@ -76,9 +76,9 @@
             <label>
               <input type="checkbox" name="ignore_other_backups" id="ignore_other_backups" class="filled-in checkbox-ha"
                 onchange="updateIgnoredBackupOptions()" />
-              <span>Ignore Other Backups</span>
+              <span data-i18n="settings.check_ignore_other_backups">Ignore Other Backups</span>
               <br />
-              <span class="helper-text">The addon will ignore any backups it didn't create.
+              <span class="helper-text" data-i18n="settings.help_ignore_other_backups">The addon will ignore any backups it didn't create.
                 Ignored backups will not count toward "Backups in Home Assistant", get deleted,
                 or get uploaded to Google Drive unless you manually tell the addon to do so.</span>
             </label>
@@ -89,9 +89,9 @@
             <label>
               <input type="checkbox" name="ignore_upgrade_backups" id="ignore_upgrade_backups"
                 class="filled-in checkbox-ha" onchange="updateIgnoredBackupOptions()" />
-              <span>Ignore "Upgrade" Backups</span>
+              <span data-i18n="settings.check_ignore_upgrade_backups">Ignore "Upgrade" Backups</span>
               <br />
-              <span class="helper-text">The addon will ignore backups with only one addon or folder inside them.
+              <span class="helper-text" data-i18n="settings.help_ignore_upgrade_backups">The addon will ignore backups with only one addon or folder inside them.
                 This is useful if you'd like the addon to ignore backups that Home Assistant automatically creates while
                 updating.
                 Ignored backups will not count toward "Backups in Home Assistant", get deleted,
@@ -105,8 +105,8 @@
             <input type="text" id="delete_ignored_after_days" name="delete_ignored_after_days"
               pattern="^([ ]*([0-9]*[.])?[0-9]+[ ]*(seconds|second|secs|sec|s|minutes|minute|mins|min|m|hours|hour|hr|h|days|day|d)?[ ,]*)*$"
               class="validate" />
-            <label for="delete_ignored_after_days">Delete ignored backups after</label>
-            <span class="helper-text">
+            <label for="delete_ignored_after_days" data-i18n="settings.label_delete_ignored_after_days">Delete ignored backups after</label>
+            <span class="helper-text" data-i18n="settings.help_delete_ignored_after_days">
               For any ignored backups, automatically delete them after this much time.
               Leave blank (the default) to never delete them. This can be any duration of
               time expressed as days, hours, minutes, and seconds. Be careful enabling this,
@@ -119,16 +119,16 @@
           <div class="input-field col m6 s12">
             <i class="material-icons prefix">date_range</i>
             <input type="number" id="days_between_backups" name="days_between_backups" min="0" class="validate" />
-            <label for="days_between_backups">Days between backups</label>
-            <span class="helper-text">The number of days between backup, or 0 to disable automatic backup
+            <label for="days_between_backups" data-i18n="settings.label_days_between_backups">Days between backups</label>
+            <span class="helper-text" data-i18n="settings.help_days_between_backups">The number of days between backup, or 0 to disable automatic backup
               creation.</span>
           </div>
           <div class="input-field col m6 s12">
             <i class="material-icons prefix">alarm_on</i>
             <input type="text" id="backup_time_of_day" name="backup_time_of_day" pattern="^[0-2]\d:[0-5]\d$"
               class="validate" />
-            <label for="backup_time_of_day">Backup time of day</label>
-            <span class="helper-text">The time of day when backups should be taken in the form 'HH:mm' (24 hour
+            <label for="backup_time_of_day" data-i18n="settings.label_backup_time_of_day">Backup time of day</label>
+            <span class="helper-text" data-i18n="settings.help_backup_time_of_day">The time of day when backups should be taken in the form 'HH:mm' (24 hour
               clock).</span>
           </div>
         </div>
@@ -137,8 +137,8 @@
             <i class="material-icons prefix">vpn_key</i>
             <input type="password" autocomplete="new-password" id="backup_password" name="backup_password"
               class="validate" onkeyup="checkForSecret()" />
-            <label for="backup_password">Password</label>
-            <span class="helper-text">When set, creates backups protected by a password. This password will be
+            <label for="backup_password" data-i18n="settings.label_backup_password">Password</label>
+            <span class="helper-text" data-i18n="settings.help_backup_password">When set, creates backups protected by a password. This password will be
               required by Home Assistant when restoring the backup. Leave blank to require no
               password. You can specify a password from your secrets.yaml by using the syntax "!secret
               your_secret_key".</span>
@@ -147,20 +147,20 @@
             <i class="material-icons prefix">vpn_key</i>
             <input type="password" autocomplete="new-password" id="backup_password_reenter"
               name="backup_password_reenter" settings_ignore="true" class="validate" onkeyup="checkForSecret()" />
-            <label for="backup_password_reenter">Re-enter password</label>
-            <span class="helper-text">Re-enter your new password to ensure it matches.</span>
+            <label for="backup_password_reenter" data-i18n="settings.label_backup_password_reenter">Re-enter password</label>
+            <span class="helper-text" data-i18n="settings.help_backup_password_reenter">Re-enter your new password to ensure it matches.</span>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">label_outline</i>
             <input type="text" id="backup_name" name="backup_name" class="validate" onkeyup="backupNameExample()" />
-            <label for="backup_name">Backup Name Template</label>
-            <span class="helper-text">The template to use for naming new backup.
+            <label for="backup_name" data-i18n="settings.label_backup_name">Backup Name Template</label>
+            <span class="helper-text"><span data-i18n="settings.help_backup_name_before_link">The template to use for naming new backup.</span>
               <a target="_blank" rel="noreferrer"
-                href="https://github.com/sabeechen/hassio-google-drive-backup#can-i-give-backups-a-different-name">See
+                href="https://github.com/sabeechen/hassio-google-drive-backup#can-i-give-backups-a-different-name" data-i18n="settings.help_backup_name_link">See
                 here</a>
-              for a list of all available options, your backup's name will look something like: <br /><span
+              <span data-i18n="settings.help_backup_name_after_link">for a list of all available options, your backup's name will look something like:</span> <br /><span
                 id="backup_example"></span></span>
           </div>
         </div>
@@ -169,12 +169,12 @@
             <label>
               <input type="checkbox" name="specify_backup_folder" id="specify_backup_folder"
                 class="filled-in checkbox-ha" onchange="chooseFolderChanged();" />
-              <span>Manually specify the backup folder</span>
+              <span data-i18n="settings.check_specify_backup_folder">Manually specify the backup folder</span>
               <br />
-              <span class="helper-text">Specify manually which folder backups should be uploaded into in Google Drive.
+              <span class="helper-text" data-i18n="settings.help_specify_folder_main">Specify manually which folder backups should be uploaded into in Google Drive.
                 If disabled, the addon will automatically create a folder in your My Drive whenever its
                 needed.</span><span id="current_folder_span"><a id="current_folder_link" target="_blank"
-                  rel="noreferrer"> Click here</a> to see the folder currently being used.</span>
+                  rel="noreferrer" data-i18n="settings.help_current_folder_link"> Click here</a> <span data-i18n="settings.help_current_folder_after_link">to see the folder currently being used.</span></span>
             </label>
             <br />
             <div id="choose_folder_controls">
@@ -182,7 +182,7 @@
                 <i class="material-icons prefix">folder_open</i>
                 <input type="text" settings_ignore="true" id="settings_specify_folder_id"
                   name="settings_specify_folder_id" class="validate" />
-                <label for="settings_specify_folder_id">Backup Folder ID</label>
+                <label for="settings_specify_folder_id" data-i18n="settings.label_settings_specify_folder_id">Backup Folder ID</label>
                 <span class="helper-text hide-for-default-creds">The Google Drive ID of the folder you'd like to upload
                   backups into. You
                   can get this id by navigating to the folder in
@@ -192,13 +192,13 @@
                   <a target="_blank" rel="noreferrer"
                     href="https://drive.google.com/drive/folders/1el4ZWcE0xdkIu_Yt_2kxk36qE7K5O188">https://drive.google.com/drive/folders/1el4ZWcE0xdkIu_Yt_2kxk36qE7K5O188</a>,
                   then the Drive ID is 1el4ZWcE0xdkIu_Yt_2kxk36qE7K5O188</span>
-                <span class="helper-text hide-for-custom-creds">Use the "Choose Folder" button to open a new window
+                <span class="helper-text hide-for-custom-creds" data-i18n="settings.help_choose_folder">Use the "Choose Folder" button to open a new window
                   where you can select the
                   folder you'd like to use and paste its folder ID here. Doing this gives the addon permission to store
                   backups in that folder.</span>
                 <a href="#!" id="choose_folder_button" onclick="chooseBackupFolder()"
-                  class="btn-flat hide-for-custom-creds" style="margin-left: 20px; margin-top: 10px"><i
-                    class="material-icons">open_in_new</i>Choose Folder</a>
+                  class="btn-flat hide-for-custom-creds" style="margin-left: 20px; margin-top: 10px" data-i18n="settings.btn_choose_folder"><i
+                  class="material-icons">open_in_new</i>Choose Folder</a>
               </div>
             </div>
           </div>
@@ -208,9 +208,9 @@
             <label>
               <input type="checkbox" name="notify_for_stale_backups" id="notify_for_stale_backups"
                 class="filled-in checkbox-ha" />
-              <span>Enable Staleness Notifications</span>
+              <span data-i18n="settings.check_notify_for_stale_backups">Enable Staleness Notifications</span>
               <br />
-              <span class="helper-text">When there is a problem with the backups, show a persistent notification in
+              <span class="helper-text" data-i18n="settings.help_notify_for_stale_backups">When there is a problem with the backups, show a persistent notification in
                 the Home Assistant interface.</span>
             </label>
           </div>
@@ -218,9 +218,9 @@
             <label>
               <input type="checkbox" name="enable_backup_stale_sensor" id="enable_backup_stale_sensor"
                 class="filled-in checkbox-ha" />
-              <span>Enable Backup Staleness Sensor</span>
+              <span data-i18n="settings.check_enable_backup_stale_sensor">Enable Backup Staleness Sensor</span>
               <br />
-              <span class="helper-text">Publishes a sensor, binary_sensor.backups_stale, indicating if there is a
+              <span class="helper-text" data-i18n="settings.help_enable_backup_stale_sensor">Publishes a sensor, binary_sensor.backups_stale, indicating if there is a
                 problem uploading up or creating backups.</span>
             </label>
           </div>
@@ -230,18 +230,18 @@
             <label>
               <input type="checkbox" name="enable_backup_state_sensor" id="enable_backup_state_sensor"
                 class="filled-in checkbox-ha" />
-              <span>Enable Backup State Sensor</span>
+              <span data-i18n="settings.check_enable_backup_state_sensor">Enable Backup State Sensor</span>
               <br />
-              <span class="helper-text">Publishes a sensor, sensor.backup_state, with the status of existing
+              <span class="helper-text" data-i18n="settings.help_enable_backup_state_sensor">Publishes a sensor, sensor.backup_state, with the status of existing
                 backups.</span>
             </label>
           </div>
           <div class="col m6 s12">
             <label>
               <input type="checkbox" name="send_error_reports" id="send_error_reports" class="filled-in checkbox-ha" />
-              <span>Send Error Reports</span>
+              <span data-i18n="settings.check_send_error_reports">Send Error Reports</span>
               <br />
-              <span class="helper-text">Sends information about errors to a database maintained by developers. This
+              <span class="helper-text" data-i18n="settings.help_send_error_reports">Sends information about errors to a database maintained by developers. This
                 helps
                 them identify problems with new releases and provide better help messages.</span>
             </label>
@@ -252,9 +252,9 @@
             <label>
               <input type="checkbox" name="confirm_multiple_deletes" id="confirm_multiple_deletes"
                 class="filled-in checkbox-ha" />
-              <span>Confirm before large deletes</span>
+              <span data-i18n="settings.check_confirm_multiple_deletes">Confirm before large deletes</span>
               <br />
-              <span class="helper-text">When disabled, the add-on will NOT stop and ask for confirmation before deleting
+              <span class="helper-text" data-i18n="settings.help_confirm_multiple_deletes">When disabled, the add-on will NOT stop and ask for confirmation before deleting
                 more than one backup. Disabling this is dangerous because accidental
                 misconfiguration can cause you to lose your history of uploaded backups.</span>
             </label>
@@ -263,9 +263,9 @@
             <label>
               <input type="checkbox" name="enable_drive_upload" id="enable_drive_upload"
                 class="filled-in checkbox-ha" />
-              <span>Enable Google Drive Upload</span>
+              <span data-i18n="settings.check_enable_drive_upload">Enable Google Drive Upload</span>
               <br />
-              <span class="helper-text">When disabled, new backups will still be created in Home Assistant but will
+              <span class="helper-text" data-i18n="settings.help_enable_drive_upload">When disabled, new backups will still be created in Home Assistant but will
                 not be uploaded to Google Drive.</span>
             </label>
           </div>
@@ -274,9 +274,9 @@
           <div class="col s12">
             <label>
               <input type="checkbox" name="warn_for_low_space" id="warn_for_low_space" class="filled-in checkbox-ha" />
-              <span>Stop on low disk space</span>
+              <span data-i18n="settings.check_warn_for_low_space">Stop on low disk space</span>
               <br />
-              <span class="helper-text">When enabled, the addon will stop creating backups and ask for you to take
+              <span class="helper-text" data-i18n="settings.help_warn_for_low_space">When enabled, the addon will stop creating backups and ask for you to take
                 action it thinks you don't have enough disk space. Disabling this is not recommended
                 because recovering from an exhausted disk can be very difficult.</span>
             </label>
@@ -287,19 +287,19 @@
             <label>
               <input type="checkbox" name="expose_extra_server" id="expose_extra_server" class="filled-in checkbox-ha"
                 onchange="toggleSlide(this, 'settings_server_details');" />
-              <span id="expose_extra_server_label">Expose this web interface on an additional port</span>
+              <span id="expose_extra_server_label" data-i18n="settings.check_expose_extra_server">Expose this web interface on an additional port</span>
               <br />
-              <span class="helper-text" id="expose_extra_server_help">Expose this web interface on an additional port.
-                This isn't necessary unless you'd like to avoid accessing this web interface through
+              <span class="helper-text" id="expose_extra_server_help"><span data-i18n="settings.help_expose_extra_server_before_link">Expose this web interface on an additional port.
+                This isn't necessary unless you'd like to avoid accessing this web interface through</span>
                 <a target="_blank" rel="noreferrer"
-                  href="https://www.home-assistant.io/blog/2019/04/15/hassio-ingress/">ingress</a>.</span>
+                  href="https://www.home-assistant.io/blog/2019/04/15/hassio-ingress/" data-i18n="settings.help_expose_extra_server_link">ingress</a><span data-i18n="settings.help_expose_extra_server_after_link">.</span></span>
             </label>
           </div>
         </div>
         <div class="row" id="settings_server_details" style="display: none">
           <div class="col s11 offset-s1">
             <label>
-              <span class="helper-text">Use the options below to configure what kind of SSL and authentication you'd
+              <span class="helper-text" data-i18n="settings.help_server_details">Use the options below to configure what kind of SSL and authentication you'd
                 like to use for this webpage. By default this server is exposed on port 1627, but
                 that can be changed from the add-on installation page.</span>
             </label>
@@ -309,9 +309,9 @@
               <div class="col s12">
                 <label>
                   <input type="checkbox" name="require_login" id="require_login" class="filled-in checkbox-ha" />
-                  <span>Require Login</span>
+                  <span data-i18n="settings.check_require_login">Require Login</span>
                   <br />
-                  <span class="helper-text">Makes you enter your Home Assistant credentials to login to this
+                  <span class="helper-text" data-i18n="settings.help_require_login">Makes you enter your Home Assistant credentials to login to this
                     webpage.</span>
                 </label>
               </div>
@@ -321,9 +321,9 @@
                 <label>
                   <input type="checkbox" name="use_ssl" id="use_ssl" class="filled-in checkbox-ha"
                     onchange="toggleSlide(this, 'settings_ssl_details');" />
-                  <span>Use SSL</span>
+                  <span data-i18n="settings.check_use_ssl">Use SSL</span>
                   <br />
-                  <span class="helper-text">Require SSL to access this web interface. You must already have SSL keys
+                  <span class="helper-text" data-i18n="settings.help_use_ssl">Require SSL to access this web interface. You must already have SSL keys
                     configured to use this. Note that once this setting is changed, you'll need to
                     navigate to the new url to continue using this webpage.</span>
                 </label>
@@ -332,15 +332,15 @@
                 <div class="input-field col s12">
                   <i class="material-icons prefix">vpn_key</i>
                   <input type="text" id="certfile" name="certfile" class="validate" />
-                  <label for="certfile">Certificate File</label>
-                  <span class="helper-text">The path to your certificate file. If you use the default Let's Encrypt
+                  <label for="certfile" data-i18n="settings.label_certfile">Certificate File</label>
+                  <span class="helper-text" data-i18n="settings.help_certfile">The path to your certificate file. If you use the default Let's Encrypt
                     settings, the default should be correct.</span>
                 </div>
                 <div class="input-field col s12">
                   <i class="material-icons prefix">vpn_key</i>
                   <input type="text" id="keyfile" name="keyfile" class="validate" />
-                  <label for="keyfile">Key File</label>
-                  <span class="helper-text">The path to your key file. If you use the default Let's Encrypt settings,
+                  <label for="keyfile" data-i18n="settings.label_keyfile">Key File</label>
+                  <span class="helper-text" data-i18n="settings.help_keyfile">The path to your key file. If you use the default Let's Encrypt settings,
                     the default should be correct.</span>
                 </div>
               </div>
@@ -352,14 +352,14 @@
             <label>
               <input type="checkbox" settings_ignore="true" id="generational_enabled" name="generational_enabled"
                 class="filled-in checkbox-ha" onchange="toggleSlide(this, 'settings_gen_details');" />
-              <span>Keep Generational Backups</span>
+              <span data-i18n="settings.check_generational_enabled">Keep Generational Backups</span>
               <br />
-              <span class="helper-text">Keeps older backups longer on daily, weekly, monthly, and yearly rotations
+              <span class="helper-text"><span data-i18n="settings.help_generational_before_link">Keeps older backups longer on daily, weekly, monthly, and yearly rotations
                 instead of just deleting the oldest backups. When using this feature, its
-                recommended that you keep "Days Between Backups" at 1.
+                recommended that you keep "Days Between Backups" at 1.</span>
                 <a href="https://github.com/sabeechen/hassio-google-drive-backup/blob/master/hassio-google-drive-backup/GENERATIONAL_BACKUP.md"
-                  target="_blank" rel="noreferrer">See here</a>
-                for a deeper explanation.</span>
+                  target="_blank" rel="noreferrer" data-i18n="settings.help_generational_link">See here</a>
+                <span data-i18n="settings.help_generational_after_link">for a deeper explanation.</span></span>
             </label>
           </div>
           <div class="row" id="settings_gen_details" style="display: none">
@@ -368,56 +368,56 @@
                 <div class="input-field col m6 s12">
                   <i class="material-icons prefix">date_range</i>
                   <input type="number" id="generational_days" name="generational_days" min="0" class="validate" />
-                  <label for="generational_days">Days</label>
-                  <span class="helper-text">The number of daily backups to keep.</span>
+                  <label for="generational_days" data-i18n="settings.label_generational_days">Days</label>
+                  <span class="helper-text" data-i18n="settings.help_generational_days">The number of daily backups to keep.</span>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col m6 s12">
                   <i class="material-icons prefix">date_range</i>
                   <input type="number" id="generational_weeks" name="generational_weeks" min="0" class="validate" />
-                  <label for="generational_weeks">Weeks</label>
-                  <span class="helper-text">The number of weeks of backups to keep.</span>
+                  <label for="generational_weeks" data-i18n="settings.label_generational_weeks">Weeks</label>
+                  <span class="helper-text" data-i18n="settings.help_generational_weeks">The number of weeks of backups to keep.</span>
                 </div>
                 <div class="input-field col m6 s12">
                   <select class="browser-default" name="generational_day_of_week" id="generational_day_of_week">
-                    <option value="mon" selected>Monday</option>
-                    <option value="tue">Tuesday</option>
-                    <option value="wed">Wednesday</option>
-                    <option value="thu">Thursday</option>
-                    <option value="fri">Friday</option>
-                    <option value="sat">Saturday</option>
-                    <option value="sun">Sunday</option>
+                    <option value="mon" selected data-i18n="settings.option_monday">Monday</option>
+                    <option value="tue" data-i18n="settings.option_tuesday">Tuesday</option>
+                    <option value="wed" data-i18n="settings.option_wednesday">Wednesday</option>
+                    <option value="thu" data-i18n="settings.option_thursday">Thursday</option>
+                    <option value="fri" data-i18n="settings.option_friday">Friday</option>
+                    <option value="sat" data-i18n="settings.option_saturday">Saturday</option>
+                    <option value="sun" data-i18n="settings.option_sunday">Sunday</option>
                   </select>
-                  <label class="helper-text">The day of the week when weekly backups will be kept.</label>
+                  <label class="helper-text" data-i18n="settings.label_generational_day_of_week">The day of the week when weekly backups will be kept.</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col m6 s12">
                   <i class="material-icons prefix">date_range</i>
                   <input type="number" id="generational_months" name="generational_months" min="0" class="validate" />
-                  <label for="generational_months">Months</label>
-                  <span class="helper-text">The number of months of backups to keep.</span>
+                  <label for="generational_months" data-i18n="settings.label_generational_months">Months</label>
+                  <span class="helper-text" data-i18n="settings.help_generational_months">The number of months of backups to keep.</span>
                 </div>
                 <div class="input-field col m6 s12">
                   <input type="number" id="generational_day_of_month" value="1" name="generational_day_of_month" min="1"
                     max="31" class="validate" />
-                  <label for="generational_day_of_month">Day of Month</label>
-                  <span class="helper-text">The day of the month to keep monthly backups, from 1 to 31</span>
+                  <label for="generational_day_of_month" data-i18n="settings.label_generational_day_of_month">Day of Month</label>
+                  <span class="helper-text" data-i18n="settings.help_generational_day_of_month">The day of the month to keep monthly backups, from 1 to 31</span>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col m6 s12">
                   <i class="material-icons prefix">date_range</i>
                   <input type="number" id="generational_years" name="generational_years" min="0" class="validate" />
-                  <label for="generational_years">Years</label>
-                  <span class="helper-text">The number of years of backups to keep.</span>
+                  <label for="generational_years" data-i18n="settings.label_generational_years">Years</label>
+                  <span class="helper-text" data-i18n="settings.help_generational_years">The number of years of backups to keep.</span>
                 </div>
                 <div class="input-field col m6 s12">
                   <input type="number" id="generational_day_of_year" value="1" name="generational_day_of_year" min="1"
                     max="365" class="validate" />
-                  <label for="generational_day_of_year">Day of Year</label>
-                  <span class="helper-text">The day of the year to keep yearly backups, from 1 to 365</span>
+                  <label for="generational_day_of_year" data-i18n="settings.label_generational_day_of_year">Day of Year</label>
+                  <span class="helper-text" data-i18n="settings.help_generational_day_of_year">The day of the year to keep yearly backups, from 1 to 365</span>
                 </div>
               </div>
               <div class="row">
@@ -425,9 +425,9 @@
                   <label>
                     <input type="checkbox" id="generational_delete_early" name="generational_delete_early"
                       class="filled-in checkbox-ha" />
-                    <span>Purge Old Backups Early</span>
+                    <span data-i18n="settings.check_generational_delete_early">Purge Old Backups Early</span>
                     <br />
-                    <span class="helper-text">When checked, old backups that aren't part of any daily, weekly,
+                    <span class="helper-text" data-i18n="settings.help_generational_delete_early">When checked, old backups that aren't part of any daily, weekly,
                       monthly, or yearly cycle you've configured will be deleted even if you haven't reached the
                       configured maximum number of backups in Google Drive/Home Assistant.</span>
                   </label>
@@ -440,9 +440,9 @@
           <div class="col s12">
             <label>
               <input type="checkbox" name="exclude_ha_database" id="exclude_ha_database"class="filled-in checkbox-ha" />
-              <span>Exclude Home Asisstant Database from Backups</span>
+              <span data-i18n="settings.check_exclude_ha_database">Exclude Home Asisstant Database from Backups</span>
               <br />
-              <span class="helper-text">Don't include the Home Assistant database in backups.  Useful if you need to save space and don't care about history.  Applies to both full and partial backups.</span>
+              <span class="helper-text" data-i18n="settings.help_exclude_ha_database">Don't include the Home Assistant database in backups.  Useful if you need to save space and don't care about history.  Applies to both full and partial backups.</span>
             </label>
           </div>
         </div>
@@ -452,9 +452,9 @@
               <input type="checkbox" settings_ignore="true" name="partial_backups" id="partial_backups"
                 class="filled-in checkbox-ha"
                 onchange="toggleSlide(this, 'settings_partial_details');backupNameExample();" />
-              <span>Partial Backups</span>
+              <span data-i18n="settings.check_partial_backups">Partial Backups</span>
               <br />
-              <span class="helper-text">Partial backups allow you to selectively backup portions of your Home
+              <span class="helper-text" data-i18n="settings.help_partial_backups">Partial backups allow you to selectively backup portions of your Home
                 Assistant configuration, folders, and add-ons. Choose which parts of Home Assistant you'd
                 like included in backups below. New add-ons will be automatically included in backups unless you
                 update these settings to exclude them.</span>
@@ -465,7 +465,7 @@
           <div class="col s11 offset-s1">
             <div class="row" style="margin-bottom: 0px">
               <div class="col s12">
-                <span style="font-weight: bold">Folders</span>
+                <span style="font-weight: bold" data-i18n="settings.section_folders">Folders</span>
                 <ul id="folder_selection_list">
 
                 </ul>
@@ -473,7 +473,7 @@
             </div>
             <div class="row">
               <div class="col s12">
-                <span style="font-weight: bold">Addons</span>
+                <span style="font-weight: bold" data-i18n="settings.section_addons">Addons</span>
                 <ul id="settings_addons"></ul>
               </div>
             </div>
@@ -484,11 +484,11 @@
             <label>
               <input type="checkbox" settings_ignore="true" name="stop_addons" id="stop_addons"
                 class="filled-in checkbox-ha" onchange="toggleSlide(this, 'settings_stop_addons_details');" />
-              <span>Stop addons</span>
+              <span data-i18n="settings.check_stop_addons">Stop addons</span>
               <br />
               <span class="helper-text">
-                This feature is going to be removed in a future release.  If you'd like to keep it around, give your feedback <a href="https://github.com/sabeechen/hassio-google-drive-backup/issues/940" target="_blank">here</a>.
-                Addons selected below will be stopped before backup and started after.
+                <span data-i18n="settings.help_stop_addons_before_link">This feature is going to be removed in a future release.  If you'd like to keep it around, give your feedback</span> <a href="https://github.com/sabeechen/hassio-google-drive-backup/issues/940" target="_blank" data-i18n="settings.help_stop_addons_link">here</a>.
+                <span data-i18n="settings.help_stop_addons_after_link">Addons selected below will be stopped before backup and started after.</span>
               </span>
             </label>
           </div>
@@ -505,9 +505,9 @@
         <div class="row">
           <div class="col s12">
             <label>
-              <span style="font-size: 15px">Look and Feel</span>
+              <span style="font-size: 15px" data-i18n="settings.section_look_and_feel">Look and Feel</span>
               <br />
-              <span class="helper-text">Configure how this web UI looks</span>
+              <span class="helper-text" data-i18n="settings.help_look_and_feel">Configure how this web UI looks</span>
             </label>
           </div>
         </div>
@@ -518,19 +518,18 @@
                 <i class="material-icons prefix">format_paint</i>
                 <a href="#!" class="btn-flat" style="margin-left: 45px; margin-top: 10px" onclick="showPallette(this)"
                   id="background_color"></a>
-                <label style="transform: translateY(-20px) scale(0.8)">Background Color</label>
-                <span class="helper-text" style="margin-top: 10px">The background color of this interface. <a href="#"
-                    onclick="revertColors();">Click here</a> to revert back to the default.</span>
+                <label style="transform: translateY(-20px) scale(0.8)" data-i18n="settings.label_background_color">Background Color</label>
+                <span class="helper-text" style="margin-top: 10px"><span data-i18n="settings.help_background_color_before_link">The background color of this interface.</span> <a href="#"
+                    onclick="revertColors();" data-i18n="settings.help_color_revert_link">Click here</a> <span data-i18n="settings.help_color_revert_after_link">to revert back to the default.</span></span>
               </div>
               <div class="input-field col s6">
                 <i class="material-icons prefix">format_paint</i>
                 <a href="#!" class="btn-flat" style="margin-left: 45px; margin-top: 10px" onclick="showPallette(this)"
                   id="accent_color"></a>
-                <label style="transform: translateY(-20px) scale(0.8)">Accent Color</label>
-                <span class="helper-text" style="margin-top: 10px">The accent color of this interface (e.g. links,
-                  buttons, and other elements you can interact with). <a href="#" onclick="revertColors();">Click
-                    here</a> to revert
-                  back to the default.</span>
+                <label style="transform: translateY(-20px) scale(0.8)" data-i18n="settings.label_accent_color">Accent Color</label>
+                <span class="helper-text" style="margin-top: 10px"><span data-i18n="settings.help_accent_color_before_link">The accent color of this interface (e.g. links,
+                  buttons, and other elements you can interact with).</span> <a href="#" onclick="revertColors();" data-i18n="settings.help_color_revert_link">Click
+                    here</a> <span data-i18n="settings.help_color_revert_after_link">to revert back to the default.</span></span>
               </div>
             </div>
           </div>
@@ -538,7 +537,7 @@
         <div class="row">
           <div class="col s12">
             <label>
-              <span style="font-size: 15px">Google Drive Options</span>
+              <span style="font-size: 15px" data-i18n="settings.section_google_drive_options">Google Drive Options</span>
             </label>
           </div>
         </div>
@@ -549,8 +548,8 @@
               <input type="text" id="upload_limit_bytes_per_second" name="upload_limit_bytes_per_second"
                 pattern="^[ ]*([0-9,]*\.?[0-9]*)[ ]*(b|B|k|K|m|M|g|G|t|T|p|P|e|E|z|Z|y|Y)[a-zA-Z ]*[ ]*$"
                 class="validate" />
-              <label for="upload_limit_bytes_per_second">Upload Bandwidth Limit</label>
-              <span class="helper-text">
+              <label for="upload_limit_bytes_per_second" data-i18n="settings.label_upload_limit_bytes_per_second">Upload Bandwidth Limit</label>
+              <span class="helper-text" data-i18n="settings.help_upload_limit_bytes_per_second">
                 Sets a bandwidth limit for uploads to Google Drive, useful if you find uploads saturating your network.
                 The value can be provided in any binary-prefix format, e.g. '256 Kb', '10 Mb', '3000Kb', etc. The speed
                 will be interpreted as "per second" so a value of "10 MB" will limit the upload speed to 10 MB per
@@ -562,8 +561,8 @@
               <i class="material-icons prefix">timelapse</i>
               <input type="number" id="google_drive_timeout_seconds" name="google_drive_timeout_seconds" min="1"
                 class="validate" />
-              <label for="google_drive_timeout_seconds">Google Drive Timeout</label>
-              <span class="helper-text">The number of seconds the add-on should wait when connecting to or reading from
+              <label for="google_drive_timeout_seconds" data-i18n="settings.label_google_drive_timeout_seconds">Google Drive Timeout</label>
+              <span class="helper-text" data-i18n="settings.help_google_drive_timeout_seconds">The number of seconds the add-on should wait when connecting to or reading from
                 Google Drive's servers.</span>
             </div>
             <div class="input-field col m6 s12">
@@ -571,11 +570,11 @@
               <input type="text" id="alternate_dns_servers" name="alternate_dns_servers"
                 pattern="^([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})(,[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})*$"
                 class="validate" />
-              <label for="alternate_dns_servers">Alternate DNS Servers</label>
-              <span class="helper-text">When the add-on runs into trouble resolving Google Drive's IP Address, it will
+              <label for="alternate_dns_servers" data-i18n="settings.label_alternate_dns_servers">Alternate DNS Servers</label>
+              <span class="helper-text"><span data-i18n="settings.help_alternate_dns_before_link">When the add-on runs into trouble resolving Google Drive's IP Address, it will
                 use this comma-delimited list of DNS Servers as alternate sources for name
-                resolution. The servers must support TCP DNS lookups. The defaults are
-                <a href="https://developers.google.com/speed/public-dns/" target="_blank" rel="noreferrer">Google's
+                resolution. The servers must support TCP DNS lookups. The defaults are</span>
+                <a href="https://developers.google.com/speed/public-dns/" target="_blank" rel="noreferrer" data-i18n="settings.help_alternate_dns_link">Google's
                   public DNS servers</a>.</span>
             </div>
           </div>
@@ -583,9 +582,9 @@
         <div class="row">
           <div class="col s12">
             <label>
-              <span style="font-size: 15px">Uncommon Options</span>
+              <span style="font-size: 15px" data-i18n="settings.section_uncommon_options">Uncommon Options</span>
               <br />
-              <span class="helper-text">Most people don't need these options, but you might.</span>
+              <span class="helper-text" data-i18n="settings.help_uncommon_options">Most people don't need these options, but you might.</span>
             </label>
           </div>
         </div>
@@ -595,9 +594,9 @@
               <label>
                 <input type="checkbox" name="ignore_ipv6_addresses" id="ignore_ipv6_addresses"
                   class="filled-in checkbox-ha" />
-                <span>Ignore IPv6 Addresses</span>
+                <span data-i18n="settings.check_ignore_ipv6_addresses">Ignore IPv6 Addresses</span>
                 <br />
-                <span class="helper-text">Ignore ipv6 Addresses for the purposes or DNS resolution. Some users have had
+                <span class="helper-text" data-i18n="settings.help_ignore_ipv6_addresses">Ignore ipv6 Addresses for the purposes or DNS resolution. Some users have had
                   problems attempting to connect to Googles IPv6 servers because it is disabled on
                   their network.</span>
               </label>
@@ -608,13 +607,13 @@
               <i class="material-icons prefix">cloud_queue</i>
               <input type="text" id="drive_ipv4" name="drive_ipv4"
                 pattern="^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$" class="validate" />
-              <label for="drive_ipv4">Google Drive IP Address Override</label>
-              <span class="helper-text">If you're having problems with reaching Google Drive, you can use this to
+              <label for="drive_ipv4" data-i18n="settings.label_drive_ipv4">Google Drive IP Address Override</label>
+              <span class="helper-text"><span data-i18n="settings.help_drive_ipv4_before_link">If you're having problems with reaching Google Drive, you can use this to
                 specify Google Drive's IP address manually and circumvent DNS lookup entirely. You can
-                use a website like
+                use a website like</span>
                 <a target="_blank" rel="noreferrer"
-                  href="https://www.xmyip.com/hostname-ip?hostname=www.googleapis.com">this one</a>
-                to lookup what address will work for www.googleapis.com.</span>
+                  href="https://www.xmyip.com/hostname-ip?hostname=www.googleapis.com" data-i18n="settings.help_drive_ipv4_link">this one</a>
+                <span data-i18n="settings.help_drive_ipv4_after_link">to lookup what address will work for www.googleapis.com.</span></span>
             </div>
           </div>
           <div class="col s11 offset-s1 row">
@@ -623,8 +622,8 @@
               <input type="text" id="max_sync_interval_seconds" name="max_sync_interval_seconds"
                 pattern="^([ ]*([0-9]*[.])?[0-9]+[ ]*(seconds|second|secs|sec|s|minutes|minute|mins|min|m|hours|hour|hr|h|days|day|d)?[ ,]*)*$"
                 class="validate" />
-              <label for="max_sync_interval_seconds">Sync Interval</label>
-              <span class="helper-text">
+              <label for="max_sync_interval_seconds" data-i18n="settings.label_max_sync_interval_seconds">Sync Interval</label>
+              <span class="helper-text" data-i18n="settings.help_max_sync_interval_seconds">
                 How often the addon should check Home Assistant and Google Drive for backups. The addon will still
                 sync more frequently when it starts, creates a new backup, or
                 encounters errors. This can be any duration of time expressed as hours, minutes, and seconds. Examples:
@@ -638,8 +637,8 @@
               <input type="text" id="ha_reporting_interval_seconds" name="ha_reporting_interval_seconds"
                 pattern="^([ ]*([0-9]*[.])?[0-9]+[ ]*(seconds|second|secs|sec|s|minutes|minute|mins|min|m|hours|hour|hr|h|days|day|d)?[ ,]*)*$"
                 class="validate" />
-              <label for="ha_reporting_interval_seconds">Home Assistant Reporting Interval</label>
-              <span class="helper-text">
+              <label for="ha_reporting_interval_seconds" data-i18n="settings.label_ha_reporting_interval_seconds">Home Assistant Reporting Interval</label>
+              <span class="helper-text" data-i18n="settings.help_ha_reporting_interval_seconds">
                 How often the addon should update the "Backups Stale" sensor in Home Assistant. The addon will still
                 update immediately when it encounters
                 errors. With longer values it may take longer after Home Assistant starts up before the "Backups Stale"
@@ -655,8 +654,8 @@
               <input type="text" id="maximum_upload_chunk_bytes" name="maximum_upload_chunk_bytes"
                 pattern="^[ ]*([0-9,]*\.?[0-9]*)[ ]*(b|B|k|K|m|M|g|G|t|T|p|P|e|E|z|Z|y|Y)[a-zA-Z ]*[ ]*$"
                 class="validate" />
-              <label for="maximum_upload_chunk_bytes">Maximum Drive Upload Chunk Size</label>
-              <span class="helper-text">
+              <label for="maximum_upload_chunk_bytes" data-i18n="settings.label_maximum_upload_chunk_bytes">Maximum Drive Upload Chunk Size</label>
+              <span class="helper-text" data-i18n="settings.help_maximum_upload_chunk_bytes">
                 Sets the maximum "chunk" size allowed for uploads to Google Drive.  Larger sizes will upload faster but delay reports 
                 of progress and may cause interruptions on some network hardware.  Between 1MB and 20MB is recommended, minimum is 256 kB. 
                 The value can be provided in any binary-prefix format, e.g. '256 Kb', '10 Mb', '3000Kb', etc.</span>
@@ -668,8 +667,8 @@
               <input type="text" id="pending_backup_timeout_seconds" name="pending_backup_timeout_seconds"
                 pattern="^([ ]*([0-9]*[.])?[0-9]+[ ]*(seconds|second|secs|sec|s|minutes|minute|mins|min|m|hours|hour|hr|h|days|day|d)?[ ,]*)*$"
                 class="validate" />
-              <label for="pending_backup_timeout_seconds">New Backup Timeout</label>
-              <span class="helper-text">
+              <label for="pending_backup_timeout_seconds" data-i18n="settings.label_pending_backup_timeout_seconds">New Backup Timeout</label>
+              <span class="helper-text" data-i18n="settings.help_pending_backup_timeout_seconds">
                 How long the addon should wait after asking Home Assistant for a new backup before it considers the backup failed and 
                 attempts a retry.  If you have very large backups or your backups just take a long time, you might need to increase 
                 this.  It can be specified in terms of hours, minutes and seconds (eg 2 hours, 100 minutes, 9 hours 30 seconds, etc) 
@@ -680,13 +679,13 @@
             <label>
               <input type="checkbox" id="call_backup_snapshot" name="call_backup_snapshot"
                 class="filled-in checkbox-ha" />
-              <span>Use old sensor names/values with "snapshot" instead of "backup"</span>
+              <span data-i18n="settings.check_call_backup_snapshot">Use old sensor names/values with "snapshot" instead of "backup"</span>
               <br />
-              <span class="helper-text">When checked, the addon's state and staleness sensors will be
+              <span class="helper-text"><span data-i18n="settings.help_call_backup_snapshot_before_link">When checked, the addon's state and staleness sensors will be
                 published as binary_sensor.snapshots_stale and sensor.snapshot_backup and their
-                attributes will reference "snapshots" instead of "backups". <a target="_blank" rel="noreferrer"
-                  href="https://github.com/sabeechen/hassio-google-drive-backup/blob/master/hassio-google-drive-backup/BACKUP_AND_SNAPSHOT.md">
-                  See here</a> for a detailed explanation of why you might want this.</span>
+                attributes will reference "snapshots" instead of "backups".</span> <a target="_blank" rel="noreferrer"
+                  href="https://github.com/sabeechen/hassio-google-drive-backup/blob/master/hassio-google-drive-backup/BACKUP_AND_SNAPSHOT.md"
+                  data-i18n="settings.help_call_backup_snapshot_link">See here</a> <span data-i18n="settings.help_call_backup_snapshot_after_link">for a detailed explanation of why you might want this.</span></span>
             </label>
           </div>
         </div>
@@ -696,11 +695,11 @@
   <div class="modal-footer" style="min-height: 56px; height: auto">
     <div class="left valign-wrapper red darken-4 white-text default-hidden" id="settings_error_div"
       style="margin: 6px; padding-left: 16px; padding-right: 16px; min-height: 36px; display: flex">
-      <span id="settings_error">Some configuration is invalid, check for red errors up above.</span>
+      <span id="settings_error" data-i18n="settings.error_invalid_config">Some configuration is invalid, check for red errors up above.</span>
     </div>
 
-    <a href="#!" class="btn-flat" id="save_settings" onClick="saveSettings()"><i class="material-icons">save</i>Save</a>
-    <a href="#!" class="btn-flat" onclick="handleCloseSettings()" id="save_cancel"><i
+    <a href="#!" class="btn-flat" id="save_settings" onClick="saveSettings()" data-i18n="settings.save"><i class="material-icons">save</i>Save</a>
+    <a href="#!" class="btn-flat" onclick="handleCloseSettings()" id="save_cancel" data-i18n="settings.cancel"><i
         class="material-icons">close</i>Cancel</a>
   </div>
 </div>

@@ -1,0 +1,203 @@
+{
+  "configuration": {
+    "max_backups_in_ha": {
+      "name": "Home Assistant 내 최대 백업 수",
+      "description": "Home Assistant에 보관할 최대 백업 수"
+    },
+    "max_backups_in_google_drive": {
+      "name": "Google 드라이브 내 최대 백업 수",
+      "description": "Google 드라이브에 보관할 최대 백업 수"
+    },
+    "days_between_backups": {
+      "name": "백업 간격(일)",
+      "description": "자동 백업 사이의 일수"
+    },
+    "ignore_other_backups": {
+      "name": "다른 백업 무시",
+      "description": "이 애드온이 생성하지 않은 백업 무시"
+    },
+    "ignore_upgrade_backups": {
+      "name": "업그레이드 백업 무시",
+      "description": "Home Assistant 업그레이드 중에 생성된 백업 무시"
+    },
+    "backup_storage": {
+      "name": "백업 저장소",
+      "description": "백업 저장 위치"
+    },
+    "delete_after_upload": {
+      "name": "업로드 후 삭제",
+      "description": "Google 드라이브로 업로드한 후 Home Assistant에서 백업 삭제"
+    },
+    "delete_before_new_backup": {
+      "name": "새 백업 전 삭제",
+      "description": "새 백업을 만들기 전에 오래된 백업 삭제"
+    },
+    "verbose": {
+      "name": "상세 로그",
+      "description": "상세 로그 기록 활성화"
+    },
+    "use_ssl": {
+      "name": "SSL 사용",
+      "description": "웹 인터페이스에 SSL 활성화"
+    },
+    "certfile": {
+      "name": "SSL 인증서 파일",
+      "description": "SSL 인증서 파일 경로"
+    },
+    "keyfile": {
+      "name": "SSL 키 파일",
+      "description": "SSL 키 파일 경로"
+    },
+    "require_login": {
+      "name": "로그인 필요",
+      "description": "웹 인터페이스 접속 시 인증 요구"
+    },
+    "backup_name": {
+      "name": "백업 이름 템플릿",
+      "description": "백업 명명을 위한 템플릿"
+    },
+    "backup_time_of_day": {
+      "name": "백업 시간",
+      "description": "백업을 생성할 시간(HH:MM 형식)"
+    },
+    "specify_backup_folder": {
+      "name": "백업 폴더 지정",
+      "description": "Google 드라이브에서 백업을 저장할 특정 폴더 선택"
+    },
+    "warn_for_low_space": {
+      "name": "저용량 경고",
+      "description": "디스크 공간이 부족할 때 경고 표시"
+    },
+    "watch_backup_directory": {
+      "name": "백업 디렉토리 감시",
+      "description": "백업 디렉토리의 변경 사항 감시"
+    },
+    "trace_requests": {
+      "name": "요청 추적",
+      "description": "상세 요청 추적 활성화"
+    },
+    "generational_days": {
+      "name": "세대별 백업(일일)",
+      "description": "보관할 일일 백업 수"
+    },
+    "generational_weeks": {
+      "name": "세대별 백업(주간)",
+      "description": "보관할 주간 백업 수"
+    },
+    "generational_months": {
+      "name": "세대별 백업(월간)",
+      "description": "보관할 월간 백업 수"
+    },
+    "generational_years": {
+      "name": "세대별 백업(연간)",
+      "description": "보관할 연간 백업 수"
+    },
+    "generational_day_of_year": {
+      "name": "세대별 백업(연중 날짜)",
+      "description": "연간 백업을 수행할 연중 날짜"
+    },
+    "generational_day_of_month": {
+      "name": "세대별 백업(월중 날짜)",
+      "description": "월간 백업을 수행할 월중 날짜"
+    },
+    "generational_day_of_week": {
+      "name": "세대별 백업(요일)",
+      "description": "주간 백업을 수행할 요일"
+    },
+    "generational_delete_early": {
+      "name": "세대별 백업 조기 삭제",
+      "description": "세대별 백업 구성 사용 시 오래된 백업 조기 삭제"
+    },
+    "notify_for_stale_backups": {
+      "name": "오래된 백업 알림",
+      "description": "백업이 오래되었을 때 알림 전송"
+    },
+    "enable_backup_stale_sensor": {
+      "name": "백업 지연 센서 활성화",
+      "description": "백업 지연 여부를 추적하는 센서 활성화"
+    },
+    "enable_backup_state_sensor": {
+      "name": "백업 상태 센서 활성화",
+      "description": "백업 상태를 추적하는 센서 활성화"
+    },
+    "send_error_reports": {
+      "name": "오류 보고서 전송",
+      "description": "익명 오류 보고서를 자동으로 전송"
+    },
+    "backup_password": {
+      "name": "백업 비밀번호",
+      "description": "백업 암호화에 사용할 비밀번호"
+    },
+    "exclude_folders": {
+      "name": "폴더 제외",
+      "description": "백업에서 제외할 폴더"
+    },
+    "exclude_addons": {
+      "name": "애드온 제외",
+      "description": "백업에서 제외할 애드온"
+    },
+    "exclude_ha_database": {
+      "name": "Home Assistant 데이터베이스 제외",
+      "description": "백업에서 Home Assistant 데이터베이스 제외"
+    },
+    "stop_addons": {
+      "name": "애드온 중지",
+      "description": "백업 생성 전에 중지할 애드온"
+    },
+    "disable_watchdog_when_stopping": {
+      "name": "중지 시 워치독 비활성화",
+      "description": "애드온 중지 시 워치독 비활성화"
+    },
+    "expose_extra_server": {
+      "name": "추가 서버 노출",
+      "description": "추가 서버 포트 노출"
+    },
+    "drive_experimental": {
+      "name": "드라이브 실험적 기능",
+      "description": "실험적인 Google 드라이브 기능 활성화"
+    },
+    "drive_ipv4": {
+      "name": "드라이브 IPv4 주소",
+      "description": "Google 드라이브 연결에 사용할 특정 IPv4 주소"
+    },
+    "ignore_ipv6_addresses": {
+      "name": "IPv6 주소 무시",
+      "description": "연결 시 IPv6 주소 무시"
+    },
+    "confirm_multiple_deletes": {
+      "name": "다중 삭제 확인",
+      "description": "여러 백업을 삭제하기 전에 확인 요청"
+    },
+    "google_drive_timeout_seconds": {
+      "name": "Google 드라이브 타임아웃",
+      "description": "Google 드라이브 작업의 타임아웃(초)"
+    },
+    "alternate_dns_servers": {
+      "name": "보조 DNS 서버",
+      "description": "쉼표로 구분된 보조 DNS 서버 목록"
+    },
+    "enable_drive_upload": {
+      "name": "드라이브 업로드 활성화",
+      "description": "Google 드라이브로의 백업 업로드 활성화"
+    },
+    "call_backup_snapshot": {
+      "name": "백업을 '스냅샷'으로 지칭",
+      "description": "'백업' 대신 레거시 용어인 '스냅샷' 사용"
+    },
+    "background_color": {
+      "name": "배경색",
+      "description": "웹 인터페이스용 맞춤 배경색(16진수 형식)"
+    },
+    "accent_color": {
+      "name": "강조색",
+      "description": "웹 인터페이스용 맞춤 강조색(16진수 형식)"
+    },
+    "maximum_upload_chunk_bytes": {
+      "name": "최대 업로드 청크 크기",
+      "description": "Google 드라이브 업로드 시 최대 청크 크기"
+    }
+  },
+  "network": {
+    "1627/tcp": "웹 인터페이스(Ingress)"
+  }
+}

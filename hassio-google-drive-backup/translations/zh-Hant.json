@@ -1,0 +1,203 @@
+{
+  "configuration": {
+    "max_backups_in_ha": {
+      "name": "Home Assistant 最大備份數量",
+      "description": "在 Home Assistant 中保留的最大備份數量"
+    },
+    "max_backups_in_google_drive": {
+      "name": "Google Drive 最大備份數量",
+      "description": "在 Google Drive 中保留的最大備份數量"
+    },
+    "days_between_backups": {
+      "name": "備份間隔天數",
+      "description": "自動備份之間的天數"
+    },
+    "ignore_other_backups": {
+      "name": "忽略其他備份",
+      "description": "忽略非本附加元件建立的備份"
+    },
+    "ignore_upgrade_backups": {
+      "name": "忽略升級備份",
+      "description": "忽略 Home Assistant 升級期間建立的備份"
+    },
+    "backup_storage": {
+      "name": "備份儲存位置",
+      "description": "備份的儲存位置"
+    },
+    "delete_after_upload": {
+      "name": "上傳後刪除",
+      "description": "上傳到 Google Drive 後從 Home Assistant 刪除備份"
+    },
+    "delete_before_new_backup": {
+      "name": "建立新備份前刪除",
+      "description": "建立新備份前刪除舊備份"
+    },
+    "verbose": {
+      "name": "詳細記錄",
+      "description": "啟用詳細日誌記錄"
+    },
+    "use_ssl": {
+      "name": "使用 SSL",
+      "description": "為網頁介面啟用 SSL"
+    },
+    "certfile": {
+      "name": "SSL 憑證檔案",
+      "description": "SSL 憑證檔案的路徑"
+    },
+    "keyfile": {
+      "name": "SSL 金鑰檔案",
+      "description": "SSL 金鑰檔案的路徑"
+    },
+    "require_login": {
+      "name": "需要登入",
+      "description": "存取網頁介面需要驗證"
+    },
+    "backup_name": {
+      "name": "備份名稱範本",
+      "description": "備份命名的範本"
+    },
+    "backup_time_of_day": {
+      "name": "每日備份時間",
+      "description": "建立備份的時間（HH:MM 格式）"
+    },
+    "specify_backup_folder": {
+      "name": "指定備份資料夾",
+      "description": "在 Google Drive 中選擇特定資料夾進行備份"
+    },
+    "warn_for_low_space": {
+      "name": "低空間警告",
+      "description": "磁碟空間不足時顯示警告"
+    },
+    "watch_backup_directory": {
+      "name": "監控備份目錄",
+      "description": "監控備份目錄的變更"
+    },
+    "trace_requests": {
+      "name": "追蹤請求",
+      "description": "啟用詳細的請求追蹤"
+    },
+    "generational_days": {
+      "name": "世代備份 - 每日",
+      "description": "保留的每日備份數量"
+    },
+    "generational_weeks": {
+      "name": "世代備份 - 每週",
+      "description": "保留的每週備份數量"
+    },
+    "generational_months": {
+      "name": "世代備份 - 每月",
+      "description": "保留的每月備份數量"
+    },
+    "generational_years": {
+      "name": "世代備份 - 每年",
+      "description": "保留的每年備份數量"
+    },
+    "generational_day_of_year": {
+      "name": "世代備份 - 年中第幾天",
+      "description": "每年備份的日期（一年中的第幾天）"
+    },
+    "generational_day_of_month": {
+      "name": "世代備份 - 月中第幾天",
+      "description": "每月備份的日期（月中的第幾天）"
+    },
+    "generational_day_of_week": {
+      "name": "世代備份 - 星期幾",
+      "description": "每週備份的星期"
+    },
+    "generational_delete_early": {
+      "name": "世代備份提早刪除",
+      "description": "使用世代備份方案時提早刪除備份"
+    },
+    "notify_for_stale_backups": {
+      "name": "過期備份通知",
+      "description": "備份過期時發送通知"
+    },
+    "enable_backup_stale_sensor": {
+      "name": "啟用備份過期感測器",
+      "description": "啟用追蹤備份是否過期的感測器"
+    },
+    "enable_backup_state_sensor": {
+      "name": "啟用備份狀態感測器",
+      "description": "啟用追蹤備份狀態的感測器"
+    },
+    "send_error_reports": {
+      "name": "傳送錯誤報告",
+      "description": "自動傳送匿名錯誤報告"
+    },
+    "backup_password": {
+      "name": "備份密碼",
+      "description": "用於加密備份的密碼"
+    },
+    "exclude_folders": {
+      "name": "排除資料夾",
+      "description": "要從備份中排除的資料夾"
+    },
+    "exclude_addons": {
+      "name": "排除附加元件",
+      "description": "要從備份中排除的附加元件"
+    },
+    "exclude_ha_database": {
+      "name": "排除 Home Assistant 資料庫",
+      "description": "從備份中排除 Home Assistant 資料庫"
+    },
+    "stop_addons": {
+      "name": "停止附加元件",
+      "description": "建立備份前要停止的附加元件"
+    },
+    "disable_watchdog_when_stopping": {
+      "name": "停止時停用看門狗",
+      "description": "停止附加元件時停用看門狗"
+    },
+    "expose_extra_server": {
+      "name": "開放額外伺服器",
+      "description": "開放額外的伺服器埠號"
+    },
+    "drive_experimental": {
+      "name": "Drive 實驗性功能",
+      "description": "啟用 Google Drive 實驗性功能"
+    },
+    "drive_ipv4": {
+      "name": "Drive IPv4 位址",
+      "description": "Google Drive 使用的特定 IPv4 位址"
+    },
+    "ignore_ipv6_addresses": {
+      "name": "忽略 IPv6 位址",
+      "description": "連線時忽略 IPv6 位址"
+    },
+    "confirm_multiple_deletes": {
+      "name": "確認多重刪除",
+      "description": "刪除多個備份前要求確認"
+    },
+    "google_drive_timeout_seconds": {
+      "name": "Google Drive 逾時時間",
+      "description": "Google Drive 操作的逾時秒數"
+    },
+    "alternate_dns_servers": {
+      "name": "替代 DNS 伺服器",
+      "description": "以逗號分隔的替代 DNS 伺服器清單"
+    },
+    "enable_drive_upload": {
+      "name": "啟用 Drive 上傳",
+      "description": "啟用上傳備份到 Google Drive"
+    },
+    "call_backup_snapshot": {
+      "name": "稱呼備份為「快照」",
+      "description": "使用舊版「快照」術語而非「備份」"
+    },
+    "background_color": {
+      "name": "背景顏色",
+      "description": "網頁介面的自訂背景顏色（十六進位格式）"
+    },
+    "accent_color": {
+      "name": "強調色",
+      "description": "網頁介面的自訂強調顏色（十六進位格式）"
+    },
+    "maximum_upload_chunk_bytes": {
+      "name": "最大上傳區塊大小",
+      "description": "上傳到 Google Drive 的最大區塊大小"
+    }
+  },
+  "network": {
+    "1627/tcp": "網頁介面（Ingress）"
+  }
+}

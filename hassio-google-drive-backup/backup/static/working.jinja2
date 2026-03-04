@@ -89,7 +89,7 @@
   <div style="margin: 20px auto; max-width: 1400px;">
     <div class="row" style="margin-bottom: 0;">
       <div class="col s12 m5 l4 xl3">
-        <h5>Backup Statistics</h5>
+        <h5 data-i18n="backup.statistics">Backup Statistics</h5>
         <div style="margin-top: 20px;">
           <div id="sources">
           </div>
@@ -97,13 +97,13 @@
           <p style="display: flex; align-items: center;">
             <i class="material-icons" style="margin-right: 6px;">timer</i>
             <span>
-              Last Backup <time datetime="" title="" id="last_backup" style="font-weight: 600;"></time>
+              <span data-i18n="backup.last">Last Backup</span> <time datetime="" title="" id="last_backup" style="font-weight: 600;"></time>
             </span>
           </p>
           <p style="display: flex; align-items: center;">
             <i class="material-icons" style="margin-right: 6px;">update</i>
             <span>
-              Next Backup in <time datetime="" title="" id="next_backup" style="font-weight: 600;"></time>
+              <span data-i18n="backup.next">Next Backup in</span> <time datetime="" title="" id="next_backup" style="font-weight: 600;"></time>
             </span>
           </p>
         </div>
@@ -116,16 +116,16 @@
           <div class="card-content">
             <span class="card-title">
               <i class="material-icons">info_outline</i>
-              <span>Share Error Reports?</span>
+              <span data-i18n="message.error_reports_question">Share Error Reports?</span>
             </span>
-            <p>If you select yes, the text of unexpected exceptions this add-on produces will be sent to a server
+            <p data-i18n="message.error_reports_description">If you select yes, the text of unexpected exceptions this add-on produces will be sent to a server
               maintained by the developer. This is completely optional, but helps give him a heads up for problems
               with new releases and aids in providing better help messages when things go wrong. If you're unsure,
               just select "No". You can always change this in the settings menu up on the top right of the page.</p>
           </div>
           <div class="card-action">
-            <a target="_blank" class="btn-flat" onClick="errorReports('true');"><i class="material-icons">check</i>Yes</a>
-            <a target="_blank" class="btn-flat" onClick="errorReports('false');"><i class="material-icons">close</i>No</a>
+            <a target="_blank" class="btn-flat" onClick="errorReports('true');"><i class="material-icons">check</i><span data-i18n="common.yes">Yes</span></a>
+            <a target="_blank" class="btn-flat" onClick="errorReports('false');"><i class="material-icons">close</i><span data-i18n="common.no">No</span></a>
           </div>
         </div>
 

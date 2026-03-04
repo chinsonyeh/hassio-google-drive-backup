@@ -1,0 +1,203 @@
+{
+  "configuration": {
+    "max_backups_in_ha": {
+      "name": "Home Assistant 内の最大バックアップ数",
+      "description": "Home Assistant 内に保持するバックアップの最大数"
+    },
+    "max_backups_in_google_drive": {
+      "name": "Google ドライブ内の最大バックアップ数",
+      "description": "Google ドライブ内に保持するバックアップの最大数"
+    },
+    "days_between_backups": {
+      "name": "バックアップの間隔（日）",
+      "description": "自動バックアップの間隔日数"
+    },
+    "ignore_other_backups": {
+      "name": "他のバックアップを無視",
+      "description": "このアドオン以外で作成されたバックアップを無視"
+    },
+    "ignore_upgrade_backups": {
+      "name": "アップグレード時のバックアップを無視",
+      "description": "Home Assistant のアップグレード時に作成されるバックアップを無視"
+    },
+    "backup_storage": {
+      "name": "バックアップの保存場所",
+      "description": "バックアップを保存する場所"
+    },
+    "delete_after_upload": {
+      "name": "アップロード後に削除",
+      "description": "Google ドライブへのアップロード後、Home Assistant からバックアップを削除"
+    },
+    "delete_before_new_backup": {
+      "name": "新規作成前に削除",
+      "description": "新しいバックアップを作成する前に古いバックアップを削除"
+    },
+    "verbose": {
+      "name": "詳細ログ",
+      "description": "詳細なログ出力を有効にする"
+    },
+    "use_ssl": {
+      "name": "SSL を使用",
+      "description": "Web インターフェースで SSL を有効にする"
+    },
+    "certfile": {
+      "name": "SSL 証明書ファイル",
+      "description": "SSL 証明書ファイルへのパス"
+    },
+    "keyfile": {
+      "name": "SSL 鍵ファイル",
+      "description": "SSL 鍵ファイルへのパス"
+    },
+    "require_login": {
+      "name": "ログインが必要",
+      "description": "Web インターフェースへのアクセスに認証を要求する"
+    },
+    "backup_name": {
+      "name": "バックアップ名のテンプレート",
+      "description": "バックアップの名前付けに使用するテンプレート"
+    },
+    "backup_time_of_day": {
+      "name": "バックアップの実行時刻",
+      "description": "バックアップを作成する時刻（HH:MM 形式）"
+    },
+    "specify_backup_folder": {
+      "name": "バックアップフォルダーを指定",
+      "description": "Google ドライブ内の特定のフォルダーをバックアップ先として指定"
+    },
+    "warn_for_low_space": {
+      "name": "空き容量不足の警告",
+      "description": "ディスク容量が少なくなった時に警告を表示"
+    },
+    "watch_backup_directory": {
+      "name": "バックアップディレクトリの監視",
+      "description": "バックアップディレクトリの変更を監視"
+    },
+    "trace_requests": {
+      "name": "リクエストの追跡",
+      "description": "詳細なリクエスト追跡を有効にする"
+    },
+    "generational_days": {
+      "name": "世代バックアップ（日次）",
+      "description": "保持する日次バックアップの数"
+    },
+    "generational_weeks": {
+      "name": "世代バックアップ（週次）",
+      "description": "保持する週次バックアップの数"
+    },
+    "generational_months": {
+      "name": "世代バックアップ（月次）",
+      "description": "保持する月次バックアップの数"
+    },
+    "generational_years": {
+      "name": "世代バックアップ（年次）",
+      "description": "保持する年次バックアップの数"
+    },
+    "generational_day_of_year": {
+      "name": "世代バックアップ（年の日）",
+      "description": "年次バックアップを行う年の日"
+    },
+    "generational_day_of_month": {
+      "name": "世代バックアップ（月の日）",
+      "description": "月次バックアップを行う月の日"
+    },
+    "generational_day_of_week": {
+      "name": "世代バックアップ（曜日）",
+      "description": "週次バックアップを行う曜日"
+    },
+    "generational_delete_early": {
+      "name": "世代バックアップの早期削除",
+      "description": "世代バックアップスキームを使用している際、古いバックアップを早めに削除"
+    },
+    "notify_for_stale_backups": {
+      "name": "古いバックアップの通知",
+      "description": "バックアップが古くなった時に通知を送信"
+    },
+    "enable_backup_stale_sensor": {
+      "name": "バックアップの古さセンサーを有効化",
+      "description": "バックアップが古いかどうかを追跡するセンサーを有効化"
+    },
+    "enable_backup_state_sensor": {
+      "name": "バックアップ状態センサーを有効化",
+      "description": "バックアップの状態を追跡するセンサーを有効化"
+    },
+    "send_error_reports": {
+      "name": "エラーレポートを送信",
+      "description": "匿名のエラーレポートを自動的に送信"
+    },
+    "backup_password": {
+      "name": "バックアップのパスワード",
+      "description": "バックアップを暗号化するためのパスワード"
+    },
+    "exclude_folders": {
+      "name": "除外するフォルダー",
+      "description": "バックアップから除外するフォルダー"
+    },
+    "exclude_addons": {
+      "name": "除外するアドオン",
+      "description": "バックアップから除外するアドオン"
+    },
+    "exclude_ha_database": {
+      "name": "Home Assistant データベースを除外",
+      "description": "バックアップから Home Assistant データベースを除外"
+    },
+    "stop_addons": {
+      "name": "アドオンを停止",
+      "description": "バックアップ作成前に停止するアドオン"
+    },
+    "disable_watchdog_when_stopping": {
+      "name": "停止時にウォッチドッグを無効化",
+      "description": "アドオン停止時にウォッチドッグを無効化"
+    },
+    "expose_extra_server": {
+      "name": "追加サーバーの公開",
+      "description": "追加のサーバーポートを公開"
+    },
+    "drive_experimental": {
+      "name": "ドライブの試験的機能",
+      "description": "Google ドライブの試験的な機能を有効化"
+    },
+    "drive_ipv4": {
+      "name": "ドライブの IPv4 アドレス",
+      "description": "Google ドライブへの接続に使用する特定の IPv4 アドレス"
+    },
+    "ignore_ipv6_addresses": {
+      "name": "IPv6 アドレスを無視",
+      "description": "接続時に IPv6 アドレスを無視"
+    },
+    "confirm_multiple_deletes": {
+      "name": "大量削除の確認",
+      "description": "複数のバックアップを削除する前に確認を求める"
+    },
+    "google_drive_timeout_seconds": {
+      "name": "Google ドライブのタイムアウト",
+      "description": "Google ドライブ操作のタイムアウト秒数"
+    },
+    "alternate_dns_servers": {
+      "name": "代替 DNS サーバー",
+      "description": "カンマ区切りの代替 DNS サーバーリスト"
+    },
+    "enable_drive_upload": {
+      "name": "ドライブへのアップロードを有効化",
+      "description": "Google ドライブへのバックアップのアップロードを有効化"
+    },
+    "call_backup_snapshot": {
+      "name": "バックアップを「スナップショット」と呼ぶ",
+      "description": "「バックアップ」の代わりに古い「スナップショット」という用語を使用"
+    },
+    "background_color": {
+      "name": "背景色",
+      "description": "Web インターフェースのカスタム背景色（16進数形式）"
+    },
+    "accent_color": {
+      "name": "アクセントカラー",
+      "description": "Web インターフェースのカスタムアクセントカラー（16進数形式）"
+    },
+    "maximum_upload_chunk_bytes": {
+      "name": "最大アップロードチャンクサイズ",
+      "description": "Google ドライブへの最大アップロードチャンクサイズ"
+    }
+  },
+  "network": {
+    "1627/tcp": "Web インターフェース (Ingress)"
+  }
+}
