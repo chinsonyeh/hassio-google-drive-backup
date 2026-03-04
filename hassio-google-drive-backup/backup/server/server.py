@@ -18,6 +18,11 @@ from urllib.parse import unquote
 NEW_AUTH_MINIMUM = Version(0, 101, 3)
 
 
+class ErrorStore():
+    def __init__(self):
+        self.last_error = None
+
+
 @singleton
 class Server():
     @inject
@@ -31,6 +36,7 @@ class Server():
             redirect=URL(config.get(Setting.AUTHORIZATION_HOST)).with_path("/drive/authorize"))
         self.logger = logger
         self.config = config
+        self.error_store = ErrorStore()
 
     def base_context(self, request: Request):
         return {
@@ -157,6 +163,11 @@ class Server():
             'messages': []
         })
 
+    async def log_error(self, request: Request):
+        report = json.loads(await request.text())
+        self.error_store.last_error = {'report': report}
+        return json_response({'status': 'ok'})
+
     def buildApp(self, app):
         path = abspath(join(__file__, "..", "..", "static"))
         app.add_routes([
@@ -166,7 +177,8 @@ class Server():
             get("/", self.index),
             get("/drive/authorize", self.authorize),
             post("/drive/refresh", self.refresh),
-            get("/health", self.health)
+            get("/health", self.health),
+            post("/logerror", self.log_error)
         ])
         aiohttp_jinja2.setup(app, loader=jinja2.FileSystemLoader(path))
         return app
